@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My YouTube Videos</title>
+</head>
+<body>
+    <h1>Recent YouTube Videos</h1>
+    <div id="video-list"></div>
+
+    <script>
+        const channelID = 'UC7JlvHDfxFYKc03CwW1QjVA';
+        const apiKey = 'AIzaSyDiJTtwGMfc-FYxACHPOwWhr2fNudV7uRo'; // You'll need a YouTube API key
+
+        // Fetch recent videos using YouTube API
+        fetch(`https://www.googleapis.com/youtube/v3/search?key=${apiKey}&channelId=${channelID}&part=snippet,id&order=date&maxResults=5`)
+            .then(response => response.json())
+            .then(data => {
+                const videos = data.items;
+                const videoList = document.getElementById('video-list');
+                
+                videos.forEach(video => {
+                    const videoId = video.id.videoId;
+                    const videoTitle = video.snippet.title;
+                    const videoEmbed = `<iframe width="560" height="315" src="https://www.youtube.com/embed/${videoId}" frameborder="0" allowfullscreen></iframe>`;
+                    videoList.innerHTML += `<h3>${videoTitle}</h3>${videoEmbed}`;
+                });
+            })
+            .catch(error => console.error('Error fetching YouTube data:', error));
+    </script>
+</body>
+</html>
