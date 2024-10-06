@@ -1,13 +1,27 @@
+---
+layout: default
+title: Home
+---
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My YouTube Videos</title>
+    <title>My Blog Posts and YouTube Videos</title>
 </head>
 <body>
     <h1>Recent YouTube Videos</h1>
     <div id="video-list"></div>
+
+    <h1>Latest Blog Posts</h1>
+    <ul id="blog-list">
+        {% for post in site.posts %}
+        <li>
+            <a href="{{ post.url }}">{{ post.title }}</a>
+        </li>
+        {% endfor %}
+    </ul>
 
     <script>
         const channelID = 'UC7JlvHDfxFYKc03CwW1QjVA';

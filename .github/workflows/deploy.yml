@@ -1,0 +1,33 @@
+name: Update Posts
+
+on:
+  schedule:
+    - cron: '0 * * * *'  # Runs every hour
+  workflow_dispatch:  # Allows manual trigger
+
+jobs:
+  update-posts:
+    name: Update posts
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Fetch latest Medium posts
+        uses: gautamkrishnar/blog-post-workflow@v1
+        with:
+          feed_list: "https://medium.com/feed/@akarce"
+
+      - name: Build Jekyll site
+        run: |
+          bundle install
+          bundle exec jekyll build
+
+      - name: Deploy Jekyll site to GitHub Pages
+        run: |
+          git config --local user.email "akarce@itu.edu.tr"
+          git config --local user.name "Ceyhun Akar"
+          git add .
+          git commit -m "Updated blog posts"
+          git push
