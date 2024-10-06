@@ -34,6 +34,10 @@ title: Home
                 const videos = data.items;
                 const videoList = document.getElementById('video-list');
                 
+                if (videos.length === 0) {
+                    videoList.innerHTML = "<p>No videos available.</p>";
+                }
+
                 videos.forEach(video => {
                     const videoId = video.id.videoId;
                     const videoTitle = video.snippet.title;

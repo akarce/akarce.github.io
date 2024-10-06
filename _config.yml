@@ -1,0 +1,3 @@
+title: Welcome to My Personal Website
+baseurl: "" # Ensure this is empty if you're deploying to the root
+url: "https://akarce.github.io" # Your site URL
