@@ -1,5 +1,6 @@
 title: Welcome to My Personal Website
-baseurl: ""  # Ensure this is empty if you're deploying to the root
-url: "https://akarce.github.io"  # Your site URL
-markdown: kramdown  # Set your markdown processor
-theme: minima  # Specify your theme (optional)
+baseurl: "" # Leave empty if you're deploying to the root
+url: "https://akarce.github.io" # Your site URL
+markdown: kramdown  # Ensure this is set for Markdown rendering
+plugins:
+  - jekyll-feed  # For feeds if you want them
