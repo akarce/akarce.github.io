@@ -1,33 +1,23 @@
-name: Update Posts
+name: Latest blog post workflow
 
 on:
   schedule:
-    - cron: '0 * * * *'  # Runs every hour
-  workflow_dispatch:  # Allows manual trigger
+    - cron: '0 * * * *'  # Runs every hour, on the hour
+  workflow_dispatch:  # Allows manual trigger from the GitHub Actions page
+
+permissions:
+  contents: write  # Grants permission to update the README
 
 jobs:
-  update-posts:
-    name: Update posts
+  update-readme-with-blog:
+    name: Update this repo's README with latest blog posts
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repository
+      - name: Checkout Repository
         uses: actions/checkout@v4
 
-      - name: Fetch latest Medium posts
+      - name: Fetch Medium Posts
         uses: gautamkrishnar/blog-post-workflow@v1
         with:
-          feed_list: "https://medium.com/feed/@akarce"
-
-      - name: Build Jekyll site
-        run: |
-          bundle install
-          bundle exec jekyll build
-
-      - name: Deploy Jekyll site to GitHub Pages
-        run: |
-          git config --local user.email "akarce@itu.edu.tr"
-          git config --local user.name "Ceyhun Akar"
-          git add .
-          git commit -m "Updated blog posts"
-          git push
+          feed_list: "https://medium.com/feed/@akarce"  # Replace with your Medium RSS feed URL
