@@ -105,8 +105,7 @@ I am a passionate Data Engineer with a deep love for coding, analytics, and open
 
 <!-- BLOG-POST-LIST:END -->
 
-```html
-<!DOCTYPE html>
+
 <html lang="en">
 <body>
     <h1>Recent YouTube Videos</h1>
