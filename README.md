@@ -4,13 +4,13 @@
   <a href="https://github.com/CeyhunCoding"><img src="https://readme-typing-svg.herokuapp.com?font=Time+New+Roman&color=cyan&size=25&center=true&vCenter=true&width=600&height=100&lines=Hi+there!+I'm+Ceyhun+👋;Data+Engineer+|+Tech+Enthusiast;Building+Scalable+Data+Solutions;Turning+Data+into+Insights;Problem+Solver+|+Lifelong+Learner"></a>
 </p>
 
-<h3 align="center">Hi! I'm Ceyhun</h3>
-<h3 align="center">Data Engineer</h3>
+<h3 align="center" style="color: #FFFFFF;">Hi! I'm Ceyhun</h3>
+<h3 align="center" style="color: #FFFFFF;">Data Engineer</h3>
 
 <!-- About Me -->
 
-<h3 align="center">About Me :</h3>  
-<p align="center">
+<h3 align="center" style="color: #FFFFFF;">About Me :</h3>  
+<p align="center" style="color: #D3D3D3;">
 I am a passionate Data Engineer with a deep love for coding, analytics, and open-source technologies. I strive to build robust, end-to-end data engineering pipelines using a wide array of tools and frameworks. I continuously learn and adopt best practices in data processing, distributed computing, cloud technologies, and data orchestration to build sustainable and scalable data solutions.
 </p>
 
