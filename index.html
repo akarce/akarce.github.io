@@ -7,24 +7,62 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <link rel="stylesheet" href="cey.css">
     <style>
+        :root {
+            --bg-color: #ffffff;
+            --text-color: #24292e;
+            --secondary-text-color: #586069;
+            --heading-color: #24292e;
+            --border-color: #eaecef;
+            --link-color: #0366d6;
+            --link-hover-color: #0056b3;
+            --button-bg-color: #0366d6;
+            --button-text-color: white;
+            --button-hover-bg-color: #0056b3;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
         body { 
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; 
             line-height: 1.6; 
-            color: #24292e; 
+            background-color: var(--bg-color);
+            color: var(--text-color); 
             max-width: 960px; 
             margin: 40px auto; 
             padding: 0 20px; 
+            transition: background-color 0.3s, color 0.3s;
         }
+
+        body.dark-mode {
+            --bg-color: #0d1117;
+            --text-color: #c9d1d9;
+            --secondary-text-color: #8b949e;
+            --heading-color: #c9d1d9;
+            --border-color: #30363d;
+            --link-color: #58a6ff;
+            --link-hover-color: #1f6feb;
+            --button-bg-color: #238636;
+            --button-hover-bg-color: #2ea043;
+        }
+
         .navbar {
             display: flex;
             justify-content: space-between;
             align-items: center;
             padding: 1rem 0;
-            border-bottom: 1px solid #eaecef;
+            border-bottom: 1px solid var(--border-color);
         }
         .navbar-brand {
             font-weight: 600;
             font-size: 1.25rem;
+            color: var(--text-color);
+            text-decoration: none;
+        }
+        .nav-container {
+            display: flex;
+            align-items: center;
         }
         .navbar-nav {
             display: flex;
@@ -37,11 +75,11 @@
         }
         .nav-link {
             text-decoration: none;
-            color: #24292e;
+            color: var(--text-color);
             font-weight: 500;
         }
         .nav-link:hover {
-            color: #0366d6;
+            color: var(--link-color);
         }
         .home-section {
             display: flex;
@@ -60,32 +98,42 @@
             font-size: 2rem;
             font-weight: 600;
             margin: 0;
+            color: var(--heading-color);
         }
         .author-card .author-role {
             font-size: 1.2rem;
-            color: #586069;
+            color: var(--secondary-text-color);
             margin: 5px 0;
         }
         .social-icon {
             font-size: 1.5rem;
             margin-right: 15px;
-            color: #24292e;
+            color: var(--text-color);
         }
         .social-icon:hover {
-            color: #0366d6;
+            color: var(--link-color);
         }
         .section-heading {
             font-size: 1.75rem;
             font-weight: 600;
-            border-bottom: 1px solid #eaecef;
+            border-bottom: 1px solid var(--border-color);
             padding-bottom: 0.3em;
             margin-top: 40px;
             margin-bottom: 20px;
+            color: var(--heading-color);
+        }
+        h3 {
+             color: var(--heading-color);
+        }
+        ul a {
+            color: var(--link-color);
         }
         .tech-icons img { 
             height: 50px; 
             margin: 5px; 
             vertical-align: middle;
+            background-color: white; /* Keep logos on a white background */
+            border-radius: 8px;
         }
         .video-container { 
             position: relative; 
@@ -107,14 +155,73 @@
             display: inline-block;
             margin-top: 20px;
             padding: 10px 20px;
-            background-color: #0366d6;
-            color: white;
+            background-color: var(--button-bg-color);
+            color: var(--button-text-color);
             text-decoration: none;
             border-radius: 5px;
             font-weight: 600;
         }
         .cv-link:hover {
-            background-color: #0056b3;
+            background-color: var(--button-hover-bg-color);
+        }
+        .theme-switch-wrapper {
+            display: flex;
+            align-items: center;
+            margin-left: 2rem;
+        }
+        .theme-switch {
+            display: inline-block;
+            height: 34px;
+            position: relative;
+            width: 60px;
+        }
+        .theme-switch input {
+            display:none;
+        }
+        .slider {
+            background-color: #ccc;
+            bottom: 0;
+            cursor: pointer;
+            left: 0;
+            position: absolute;
+            right: 0;
+            top: 0;
+            transition: .4s;
+        }
+        .slider:before {
+            background-color: #fff;
+            bottom: 4px;
+            content: "";
+            height: 26px;
+            left: 4px;
+            position: absolute;
+            transition: .4s;
+            width: 26px;
+        }
+        input:checked + .slider {
+            background-color: #2196F3;
+        }
+        input:checked + .slider:before {
+            transform: translateX(26px);
+        }
+        .slider.round {
+            border-radius: 34px;
+        }
+        .slider.round:before {
+            border-radius: 50%;
+        }
+        .contact-link {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            color: var(--text-color);
+            margin-bottom: 1rem;
+        }
+        .contact-link:hover {
+            color: var(--link-color);
+        }
+        .contact-link .social-icon {
+            margin-right: 10px;
         }
     </style>
 </head>
@@ -122,19 +229,27 @@
 
     <nav class="navbar">
         <a class="navbar-brand" href="#">Ceyhun Akar</a>
-        <ul class="navbar-nav">
-            <li class="nav-item"><a class="nav-link" href="#about">Home</a></li>
-            <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
-            <li class="nav-item"><a class="nav-link" href="#posts">Posts</a></li>
-            <li class="nav-item"><a class="nav-link" href="#videos">Videos</a></li>
-            <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
-            <li class="nav-item"><a class="nav-link" href="Ceyhun_Akar_CV.pdf" target="_blank">CV/Resume</a></li>
-        </ul>
+        <div class="nav-container">
+            <ul class="navbar-nav">
+                <li class="nav-item"><a class="nav-link" href="#about">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
+                <li class="nav-item"><a class="nav-link" href="#posts">Posts</a></li>
+                <li class="nav-item"><a class="nav-link" href="#videos">Videos</a></li>
+                <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                <li class="nav-item"><a class="nav-link" href="Ceyhun_Akar_CV.pdf" target="_blank">CV/Resume</a></li>
+            </ul>
+            <div class="theme-switch-wrapper">
+                <label class="theme-switch" for="checkbox">
+                    <input type="checkbox" id="checkbox" />
+                    <div class="slider round"></div>
+                </label>
+            </div>
+        </div>
     </nav>
 
     <section id="about" class="home-section">
         <div class="author-image">
-            <img src="avatar.jpeg" alt="Ceyhun Akar">
+            <img src="avatar.heic" alt="Ceyhun Akar">
         </div>
         <div class="author-card">
             <h1 class="author-name">Ceyhun Akar</h1>
@@ -158,7 +273,7 @@
     
     <section id="skills">
         <h2 class="section-heading">Skills</h2>
-        <h3>🔭 I’m currently working on projects involving:</h3>
+        <h3>🔭 I'm currently working on projects involving:</h3>
         <div class="tech-icons">
             <a href="https://www.python.org/" target="_blank"><img src="https://cdn.icon-icons.com/icons2/1508/PNG/512/python_104451.png" alt="python"></a>
             <a href="https://www.gnu.org/software/bash/"><img src="https://user-images.githubusercontent.com/25181517/192158606-7c2ef6bd-6e04-47cf-b5bc-da2797cb5bda.png" alt="bash"></a>
@@ -167,12 +282,17 @@
             <a href="https://aws.amazon.com/" target="_blank"><img src="https://img.icons8.com/color/512/amazon-web-services.png" alt="aws"></a>
             <a href="https://www.databricks.com/"><img src="https://user-images.githubusercontent.com/25181517/197845567-86a09ca9-d96f-42c4-9ab1-8bce95ab000d.png" alt="databricks"></a>
             <a href="https://airflow.apache.org/" target="_blank"><img src="https://www.svgrepo.com/show/353380/airflow.svg" alt="airflow"></a>
-            <a href="https://kafka.apache.org/" target="_blank"><img src="https://upload.wikimedia.org/wikipedia/commons/0/0a/Apache_kafka-icon.svg" alt="kafka"></a>
+            <a href="https://kafka.apache.org/" target="_blank"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Apache_kafka_wordtype.svg/2880px-Apache_kafka_wordtype.svg.png" alt="kafka"></a>
             <a href="https://www.confluent.io/" target="_blank"><img src="https://companieslogo.com/img/orig/CFLT-c4a50286.png" alt="confluent"></a>
             <a href="https://spark.apache.org/" target="_blank"><img src="https://ignos.blog/wp-content/uploads/2022/06/apachesparklogo-e1655475818894.png" alt="spark"></a>
             <a href="https://nifi.apache.org/"><img src="https://upload.wikimedia.org/wikipedia/commons/f/ff/Apache-nifi-logo.svg" alt="nifi"></a>
             <a href="https://hive.apache.org/"><img src="https://upload.wikimedia.org/wikipedia/commons/b/bb/Apache_Hive_logo.svg" alt="hive"></a>
             <a href="https://www.elastic.co/elasticsearch" target="_blank"><img src="https://img.icons8.com/color/512/elasticsearch.png" alt="elasticsearch"></a>
+            <a href="https://flink.apache.org/" target="_blank"><img src="https://flink.apache.org/img/logo/png/200/flink_squirrel_200_color.png" alt="flink"></a>
+            <a href="https://kubernetes.io/" target="_blank"><img src="https://upload.wikimedia.org/wikipedia/commons/3/39/Kubernetes_logo_without_workmark.svg" alt="kubernetes"></a>
+            <a href="https://www.rancher.com/" target="_blank"><img src="https://www.rancher.com/assets/img/logos/rancher-suse-logo-horizontal-white.svg" alt="rancher"></a>
+            <a href="https://grafana.com/" target="_blank"><img src="https://user-images.githubusercontent.com/25181517/182534075-4962068b-4407-46c2-ac67-ddcb86af30cc.png" alt="grafana"></a>
+            <a href="https://fastapi.tiangolo.com/" src="https://upload.wikimedia.org/wikipedia/commons/1/1a/FastAPI_logo.svg" alt="fastapi"></a>
         </div>
 
         <h3>🛠️ Databases I work with:</h3>
@@ -183,25 +303,24 @@
             <a href="https://www.mongodb.com/" target="_blank"><img src="https://www.opc-router.de/wp-content/uploads/2021/03/mongodb_thumbnail.png" alt="mongodb"></a>
             <a href="https://couchdb.apache.org/"><img src="https://user-images.githubusercontent.com/25181517/188324073-16ec2fcc-e7d5-401a-9dbf-7c26f23c325f.png" alt="couchdb"></a>
             <a href="https://trino.io/"><img src="https://upload.wikimedia.org/wikipedia/commons/5/57/Trino-logo-w-bk.svg" alt="trino"></a>
+            <a href="https://clickhouse.com/" src="https://upload.wikimedia.org/wikipedia/commons/0/0e/Clickhouse.png" alt="clickhouse"></a>
+            <a href="https://redis.io/" src="https://images.icon-icons.com/2415/PNG/512/redis_original_wordmark_logo_icon_146369.png" alt="redis"></a>
         </div>
 
         <h3>📊 BI Tools:</h3>
         <div class="tech-icons">
-            <a href="https://www.elastic.co/kibana" target="_blank"><img src="https://brandslogos.com/wp-content/uploads/images/large/elastic-kibana-logo.png" alt="kibana"></a>
+            <a href="https://www.elastic.co/kibana" target="_blank"><img src="https://images.icon-icons.com/2699/PNG/512/elasticco_kibana_logo_icon_169209.png" alt="kibana"></a>
             <a href="https://www.tableau.com/"><img src="https://logos-world.net/wp-content/uploads/2021/10/Tableau-Symbol.png" alt="tableau"></a>
             <a href="https://app.powerbi.com/"><img src="https://upload.wikimedia.org/wikipedia/commons/c/cf/New_Power_BI_Logo.svg" alt="powerbi"></a>
             <a href="https://superset.apache.org/"><img src="https://seeklogo.com/images/S/superset-icon-logo-D70353ADD5-seeklogo.com.png" alt="superset"></a>
         </div>
 
-        <h3>🌱 I’m currently learning:</h3>
+        <h3>🌱 I'm currently learning:</h3>
         <div class="tech-icons">
-            <a href="https://flink.apache.org/" target="_blank"><img src="https://flink.apache.org/img/logo/png/200/flink_squirrel_200_color.png" alt="flink"></a>
             <a href="https://neo4j.com/" target="_blank"><img src="https://user-images.githubusercontent.com/25181517/182884027-02cf00e4-6ac5-49a8-816d-3287a26bc5b4.png" alt="neo4j"></a>
-            <a href="https://kubernetes.io/" target="_blank"><img src="https://upload.wikimedia.org/wikipedia/labs/b/ba/Kubernetes-icon-color.svg" alt="kubernetes"></a>
             <a href="https://www.terraform.io/" target="_blank"><img src="https://ms-devlabs.gallerycdn.vsassets.io/extensions/ms-devlabs/custom-terraform-tasks/0.1.23/1692742494795/Microsoft.VisualStudio.Services.Icons.Default" alt="terraform"></a>
-            <a href="https://grafana.com/" target="_blank"><img src="https://user-images.githubusercontent.com/25181517/182534075-4962068b-4407-46c2-ac67-ddcb86af30cc.png" alt="grafana"></a>
             <a href="https://www.getdbt.com/" target="_blank"><img src="https://seeklogo.com/images/D/dbt-logo-500AB0BAA7-seeklogo.com.png" alt="dbt"></a>
-            <a href="https://dagster.io/" target="_blank"><img src="https://dagster.io/images/brand/logos/dagster-reversed-mark.png" alt="dagster"></a>
+            <a href="https://dagster.io/" target="_blank"><img src="https://images.seeklogo.com/logo-png/46/1/dagster-logo-png_seeklogo-464016.png" alt="dagster"></a>
             <a href="https://lookerstudio.google.com/" target="_blank"><img src="https://www.svgrepo.com/show/354012/looker-icon.svg" alt="looker"></a>
             <a href="https://beam.apache.org/" target="_blank"><img src="https://beam.apache.org/images/logos/full-color/nameless/beam-logo-full-color-nameless-500.png" alt="beam"></a>
         </div>
@@ -227,9 +346,12 @@
         <h2 class="section-heading">Contact</h2>
         <p>Feel free to reach out to me via email or connect with me on my social platforms.</p>
          <div class="social">
-            <a href="mailto:akarceyh@gmail.com" class="social-icon"><i class="fas fa-envelope"></i> akarceyh@gmail.com</a><br><br>
-            <a href="https://www.linkedin.com/in/akarce/" target="_blank" class="social-icon"><i class="fab fa-linkedin"></i> LinkedIn</a><br><br>
-            <a href="https://discordapp.com/users/1072296526245789696" target="_blank" class="social-icon"><i class="fab fa-discord"></i> Discord</a>
+            <a href="mailto:akarceyh@gmail.com" class="contact-link">
+                <i class="fas fa-envelope social-icon"></i> akarceyh@gmail.com
+            </a>
+            <a href="https://www.linkedin.com/in/akarce/" target="_blank" class="contact-link">
+                <i class="fab fa-linkedin social-icon"></i> LinkedIn
+            </a>
         </div>
     </section>
 
@@ -238,6 +360,32 @@
     </footer>
 
     <script>
+        // Theme switcher logic
+        const toggleSwitch = document.querySelector('.theme-switch input[type="checkbox"]');
+        const currentTheme = localStorage.getItem('theme');
+
+        if (currentTheme) {
+            document.body.classList.add(currentTheme);
+        
+            if (currentTheme === 'dark-mode') {
+                toggleSwitch.checked = true;
+            }
+        }
+
+        function switchTheme(e) {
+            if (e.target.checked) {
+                document.body.classList.add('dark-mode');
+                localStorage.setItem('theme', 'dark-mode');
+            }
+            else {
+                document.body.classList.remove('dark-mode');
+                localStorage.setItem('theme', 'light-mode');
+            }    
+        }
+
+        toggleSwitch.addEventListener('change', switchTheme, false);
+
+        // YouTube fetch logic
         const channelID = 'UC7JlvHDfxFYKc03CwW1QjVA';
         const apiKey = 'AIzaSyDiJTtwGMfc-FYxACHPOwWhr2fNudV7uRo'; // NOTE: This key is public and may be disabled.
 
