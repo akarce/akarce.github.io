@@ -128,6 +128,12 @@
         ul a {
             color: var(--link-color);
         }
+        .tech-icons {
+            /* Added flex properties here for better alignment even on desktop */
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px; /* Provides spacing between icons */
+        }
         .tech-icons img { 
             height: 50px; 
             width: auto;
@@ -227,6 +233,73 @@
         .contact-link .social-icon {
             margin-right: 10px;
         }
+
+        /* --- START: Mobile Responsive Styles --- */
+        @media (max-width: 768px) {
+            body {
+                margin-top: 20px;
+                margin-bottom: 20px;
+                padding: 0 15px;
+            }
+
+            .navbar, .nav-container {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .navbar-brand {
+                margin-bottom: 1rem;
+            }
+
+            .navbar-nav {
+                flex-direction: column;
+                width: 100%;
+            }
+
+            .nav-item {
+                margin-left: 0;
+                margin-bottom: 0.5rem;
+            }
+            
+            .theme-switch-wrapper {
+                margin-left: 0;
+                margin-top: 1rem;
+            }
+
+            .home-section {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .author-image {
+                margin-right: 0;
+                margin-bottom: 20px;
+            }
+            
+            .social {
+                /* Center the social icons container content */
+                display: flex;
+                justify-content: center;
+            }
+
+            .tech-icons {
+                justify-content: center; /* Center icons when they wrap */
+            }
+            
+            .author-card .author-name, .section-heading {
+                font-size: 1.6rem;
+            }
+            
+            .author-card .author-role {
+                font-size: 1.1rem;
+            }
+
+            h3 {
+                font-size: 1.1rem;
+            }
+        }
+        /* --- END: Mobile Responsive Styles --- */
+
     </style>
 </head>
 <body>
