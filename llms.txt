@@ -1,0 +1,31 @@
+# Ceyhun Akar
+
+> Data engineer in Istanbul (UTC+3). I build the secure, multi-tenant analytics layer and the pipelines that feed it. Contract data engineer at Mediastream AG on ComplyGuard, a compliance analytics platform for regulated iGaming, since December 2024. Executive MBA student at Istanbul Technical University.
+
+## Work (Mediastream AG, ComplyGuard)
+
+- Two-layer tenant isolation on ClickHouse: a FastAPI query guard plus deploy-time row-level security policies, covered by a 57-test isolation suite.
+- Most of the analytics backend (now 100+ REST endpoints over 35 tables) and its first Svelte 5 front end; an earlier version of the customer-facing app runs in production. A no-code dashboard builder behind a SQL guard.
+- Airflow on Kubernetes for two data platforms; a URL-classification pipeline split into scrape, translate and predict stages; incremental Cassandra-to-ClickHouse paths with Kafka Connect and PySpark.
+- A streaming path from model scores to KPIs with Kafka Connect and PyFlink into ClickHouse (retired in 2026).
+- SSO with TOTP 2FA (Authelia, LLDAP), data-driven role-based access and audit logging.
+- Co-built compliance workflows: the rule-authoring side of a rules engine with four-eyes approval, and license, obligation and case management.
+
+## Stack
+
+Work stack (paid work or a live product): Python, SQL, Apache Kafka, Kafka Connect, Apache Flink (PyFlink), Apache Spark, Apache Airflow, dbt, ClickHouse, PostgreSQL, Apache Cassandra, Redis, Apache Superset, Kubernetes, Helm, Docker, AWS, Google Cloud, FastAPI, SQLAlchemy, Pydantic, MLflow.
+Built with (projects): Hugging Face Transformers, PyTorch, Amazon Bedrock, Elasticsearch, Logstash, Kibana, MongoDB, Trino, Apache Hive, Apache NiFi, MinIO, Tableau, Confluent Cloud.
+
+## Public projects (2024)
+
+- [Real-time review sentiment pipeline](https://github.com/akarce/real-time-data-pipeline-kafka-mongo-elasticsearch-pyspark): Kafka, Spark, MongoDB, Elasticsearch; with an 82-minute YouTube build.
+- [e2e-structured-streaming](https://github.com/akarce/e2e-structured-streaming): Airflow, Kafka, Spark Structured Streaming, Cassandra.
+- [elk-stack-mastery](https://github.com/akarce/elk-stack-mastery): multi-node Elasticsearch, Logstash and Kibana with index lifecycle tiers.
+- [RedditDataPipeline](https://github.com/akarce/RedditDataPipeline): NiFi, Airflow, MinIO, Hive, Trino, Superset.
+
+## Contact
+
+- Email: akarceyh@gmail.com
+- CV: https://akarce.github.io/Ceyhun_Akar_CV.pdf
+- LinkedIn: https://www.linkedin.com/in/akarce/
+- GitHub: https://github.com/akarce

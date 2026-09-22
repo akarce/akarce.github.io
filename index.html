@@ -1,492 +1,435 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ceyhun Akar - Data Engineer</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-    <link rel="stylesheet" href="cey.css">
-    <style>
-        :root {
-            --bg-color: #ffffff;
-            --text-color: #24292e;
-            --secondary-text-color: #586069;
-            --heading-color: #24292e;
-            --border-color: #eaecef;
-            --link-color: #0366d6;
-            --link-hover-color: #0056b3;
-            --button-bg-color: #0366d6;
-            --button-text-color: white;
-            --button-hover-bg-color: #0056b3;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' 'sha256-LoCX9nwMTGxoAkfZR30QoLla4b0wh3OQGsedBbEfDsc='; style-src 'self'; font-src 'self'; img-src 'self'; manifest-src 'self'; connect-src 'self'; base-uri 'none'; form-action 'none'; require-trusted-types-for 'script'">
+  <title>Ceyhun Akar | Data Engineer (Kafka, Flink, ClickHouse, Kubernetes)</title>
+  <meta name="description" content="Ceyhun Akar is a data engineer in Istanbul. He builds streaming pipelines and secure, multi-tenant analytics platforms with Kafka, Flink, Spark, Airflow, ClickHouse and Kubernetes.">
+  <meta name="author" content="Ceyhun Akar">
+  <link rel="canonical" href="https://akarce.github.io/">
+  <meta name="color-scheme" content="light dark">
+  <meta name="theme-color" content="#f4f5f1" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0e1311" media="(prefers-color-scheme: dark)">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="assets/apple-touch-icon.png" type="image/png" sizes="180x180">
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+  <link rel="alternate" type="application/rss+xml" title="Ceyhun Akar on Medium" href="https://medium.com/feed/@akarce">
+  <link rel="alternate" type="application/atom+xml" title="Ceyhun Akar on YouTube" href="https://www.youtube.com/feeds/videos.xml?channel_id=UC7JlvHDfxFYKc03CwW1QjVA">
 
-        html {
-            scroll-behavior: smooth;
-        }
+  <meta property="og:type" content="profile">
+  <meta property="og:url" content="https://akarce.github.io/">
+  <meta property="og:title" content="Ceyhun Akar | Data Engineer">
+  <meta property="og:description" content="Streaming pipelines and secure, multi-tenant analytics platforms: Kafka, Flink, Spark, Airflow, ClickHouse, Kubernetes.">
+  <meta property="og:image" content="https://akarce.github.io/assets/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Ceyhun Akar, Data Engineer. Streaming pipelines and multi-tenant analytics platforms.">
+  <meta property="profile:first_name" content="Ceyhun">
+  <meta property="profile:last_name" content="Akar">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Ceyhun Akar | Data Engineer">
+  <meta name="twitter:description" content="Streaming pipelines and secure, multi-tenant analytics platforms: Kafka, Flink, Spark, Airflow, ClickHouse, Kubernetes.">
+  <meta name="twitter:image" content="https://akarce.github.io/assets/og-image.png">
 
-        body { 
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; 
-            line-height: 1.6; 
-            background-color: var(--bg-color);
-            color: var(--text-color); 
-            max-width: 960px; 
-            margin: 40px auto; 
-            padding: 0 20px; 
-            transition: background-color 0.3s, color 0.3s;
-        }
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfilePage",
+    "url": "https://akarce.github.io/",
+    "mainEntity": {
+      "@type": "Person",
+      "@id": "https://akarce.github.io/#person",
+      "name": "Ceyhun Akar",
+      "alternateName": "akarce",
+      "jobTitle": "Data Engineer",
+      "description": "Data engineer building streaming pipelines and secure, multi-tenant analytics platforms.",
+      "url": "https://akarce.github.io/",
+      "image": "https://akarce.github.io/assets/avatar.jpg",
+      "email": "mailto:akarceyh@gmail.com",
+      "address": { "@type": "PostalAddress", "addressLocality": "Istanbul", "addressCountry": "TR" },
+      "worksFor": { "@type": "Organization", "name": "Mediastream AG" },
+      "alumniOf": { "@type": "CollegeOrUniversity", "name": "Istanbul Technical University" },
+      "knowsAbout": ["Data engineering", "Apache Kafka", "Apache Flink", "Apache Spark", "Apache Airflow", "ClickHouse", "Kubernetes", "FastAPI", "Python", "SQL"],
+      "sameAs": [
+        "https://github.com/akarce",
+        "https://www.linkedin.com/in/akarce/",
+        "https://medium.com/@akarce",
+        "https://www.youtube.com/@ceysdatahub"
+      ]
+    }
+  }
+  </script>
 
-        body.dark-mode {
-            --bg-color: #0d1117;
-            --text-color: #c9d1d9;
-            --secondary-text-color: #8b949e;
-            --heading-color: #c9d1d9;
-            --border-color: #30363d;
-            --link-color: #58a6ff;
-            --link-hover-color: #1f6feb;
-            --button-bg-color: #238636;
-            --button-hover-bg-color: #2ea043;
+  <script>
+    (function () {
+      var d = document.documentElement;
+      d.className += " js";
+      try {
+        var t = localStorage.getItem("theme");
+        if (t === "dark" || t === "light") {
+          d.setAttribute("data-theme", t);
+          var cs = document.querySelector('meta[name="color-scheme"]');
+          if (cs) cs.setAttribute("content", t);
+          var c = t === "dark" ? "#0e1311" : "#f4f5f1";
+          var m = document.querySelectorAll('meta[name="theme-color"]');
+          for (var i = 0; i < m.length; i++) m[i].setAttribute("content", c);
         }
+      } catch (e) {}
+    })();
+  </script>
 
-        .navbar {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1rem 0;
-            border-bottom: 1px solid var(--border-color);
-        }
-        .navbar-brand {
-            font-weight: 600;
-            font-size: 1.25rem;
-            color: var(--text-color);
-            text-decoration: none;
-        }
-        .nav-container {
-            display: flex;
-            align-items: center;
-        }
-        .navbar-nav {
-            display: flex;
-            list-style: none;
-            padding-left: 0;
-            margin: 0;
-        }
-        .nav-item {
-            margin-left: 1.5rem;
-        }
-        .nav-link {
-            text-decoration: none;
-            color: var(--text-color);
-            font-weight: 500;
-        }
-        .nav-link:hover {
-            color: var(--link-color);
-        }
-        .home-section {
-            display: flex;
-            align-items: center;
-            padding: 40px 0;
-        }
-        .author-image {
-            margin-right: 40px;
-        }
-        .author-image img {
-            border-radius: 50%;
-            width: 150px;
-            height: 150px;
-        }
-        .author-card .author-name {
-            font-size: 2rem;
-            font-weight: 600;
-            margin: 0;
-            color: var(--heading-color);
-        }
-        .author-card .author-role {
-            font-size: 1.2rem;
-            color: var(--secondary-text-color);
-            margin: 5px 0;
-        }
-        .social-icon {
-            font-size: 1.5rem;
-            margin-right: 15px;
-            color: var(--text-color);
-        }
-        .social-icon:hover {
-            color: var(--link-color);
-        }
-        .section-heading {
-            font-size: 1.75rem;
-            font-weight: 600;
-            border-bottom: 1px solid var(--border-color);
-            padding-bottom: 0.3em;
-            margin-top: 40px;
-            margin-bottom: 20px;
-            color: var(--heading-color);
-        }
-        h3 {
-             color: var(--heading-color);
-        }
-        ul a {
-            color: var(--link-color);
-        }
-        .tech-icons {
-            /* Added flex properties here for better alignment even on desktop */
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px; /* Provides spacing between icons */
-        }
-        .tech-icons img { 
-            height: 50px; 
-            width: auto;
-            max-width: 120px;
-            object-fit: contain;
-            margin: 5px; 
-            vertical-align: middle;
-            background-color: white; /* Keep logos on a white background */
-            border-radius: 8px;
-            padding: 5px;
-        }
-        .video-container { 
-            position: relative; 
-            padding-bottom: 56.25%; 
-            height: 0; 
-            overflow: hidden; 
-            max-width: 100%; 
-            background: #000; 
-            margin-top: 20px;
-        }
-        .video-container iframe { 
-            position: absolute; 
-            top: 0; 
-            left: 0; 
-            width: 100%; 
-            height: 100%; 
-        }
-        .cv-link {
-            display: inline-block;
-            margin-top: 20px;
-            padding: 10px 20px;
-            background-color: var(--button-bg-color);
-            color: var(--button-text-color);
-            text-decoration: none;
-            border-radius: 5px;
-            font-weight: 600;
-        }
-        .cv-link:hover {
-            background-color: var(--button-hover-bg-color);
-        }
-        .theme-switch-wrapper {
-            display: flex;
-            align-items: center;
-            margin-left: 2rem;
-        }
-        .theme-switch {
-            display: inline-block;
-            height: 34px;
-            position: relative;
-            width: 60px;
-        }
-        .theme-switch input {
-            display:none;
-        }
-        .slider {
-            background-color: #ccc;
-            bottom: 0;
-            cursor: pointer;
-            left: 0;
-            position: absolute;
-            right: 0;
-            top: 0;
-            transition: .4s;
-        }
-        .slider:before {
-            background-color: #fff;
-            bottom: 4px;
-            content: "";
-            height: 26px;
-            left: 4px;
-            position: absolute;
-            transition: .4s;
-            width: 26px;
-        }
-        input:checked + .slider {
-            background-color: #2196F3;
-        }
-        input:checked + .slider:before {
-            transform: translateX(26px);
-        }
-        .slider.round {
-            border-radius: 34px;
-        }
-        .slider.round:before {
-            border-radius: 50%;
-        }
-        .contact-link {
-            display: flex;
-            align-items: center;
-            text-decoration: none;
-            color: var(--text-color);
-            margin-bottom: 1rem;
-        }
-        .contact-link:hover {
-            color: var(--link-color);
-        }
-        .contact-link .social-icon {
-            margin-right: 10px;
-        }
-
-        /* --- START: Mobile Responsive Styles --- */
-        @media (max-width: 768px) {
-            body {
-                margin-top: 20px;
-                margin-bottom: 20px;
-                padding: 0 15px;
-            }
-
-            .navbar, .nav-container {
-                flex-direction: column;
-                align-items: flex-start;
-            }
-
-            .navbar-brand {
-                margin-bottom: 1rem;
-            }
-
-            .navbar-nav {
-                flex-direction: column;
-                width: 100%;
-            }
-
-            .nav-item {
-                margin-left: 0;
-                margin-bottom: 0.5rem;
-            }
-            
-            .theme-switch-wrapper {
-                margin-left: 0;
-                margin-top: 1rem;
-            }
-
-            .home-section {
-                flex-direction: column;
-                text-align: center;
-            }
-
-            .author-image {
-                margin-right: 0;
-                margin-bottom: 20px;
-            }
-            
-            .social {
-                /* Center the social icons container content */
-                display: flex;
-                justify-content: center;
-            }
-
-            .tech-icons {
-                justify-content: center; /* Center icons when they wrap */
-            }
-            
-            .author-card .author-name, .section-heading {
-                font-size: 1.6rem;
-            }
-            
-            .author-card .author-role {
-                font-size: 1.1rem;
-            }
-
-            h3 {
-                font-size: 1.1rem;
-            }
-        }
-        /* --- END: Mobile Responsive Styles --- */
-
-    </style>
+  <link rel="preload" href="assets/fonts/ibm-plex-sans-latin-var.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/archivo-latin-var.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="assets/site.css">
+  <script src="assets/site.js" defer></script>
 </head>
 <body>
+  <a class="skip" href="#main">Skip to content</a>
 
-    <nav class="navbar">
-        <a class="navbar-brand" href="#">Ceyhun Akar</a>
-        <div class="nav-container">
-            <ul class="navbar-nav">
-                <li class="nav-item"><a class="nav-link" href="#about">Home</a></li>
-                <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
-                <li class="nav-item"><a class="nav-link" href="#posts">Posts</a></li>
-                <li class="nav-item"><a class="nav-link" href="#videos">Videos</a></li>
-                <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
-                <li class="nav-item"><a class="nav-link" href="Ceyhun_Akar_CV.pdf" target="_blank">CV/Resume</a></li>
+  <header class="site-header">
+    <div class="wrap">
+      <a class="brand" href="#top">Ceyhun Akar</a>
+      <nav class="nav" aria-label="Main">
+        <a href="#work">Work</a>
+        <a href="#stack">Stack</a>
+        <a href="#projects">Projects</a>
+        <a href="#writing">Writing</a>
+        <a href="#contact">Contact</a>
+        <a class="cv" href="Ceyhun_Akar_CV.pdf">CV (PDF)</a>
+        <button class="theme-toggle" type="button" id="theme-toggle" aria-label="Dark theme" aria-pressed="false">
+          <svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+          <svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <div class="wrap hero" id="top">
+      <img class="avatar rise" src="assets/avatar-168.webp" srcset="assets/avatar-168.webp 1x, assets/avatar-336.webp 2x" width="72" height="72" alt="Portrait of Ceyhun Akar">
+      <h1 class="rise d1">Ceyhun Akar</h1>
+      <p class="lede rise d2">Data engineer. I build the secure, <span class="nb">multi-tenant</span> analytics layer and the pipelines that feed it.</p>
+      <ul class="facts rise d3">
+        <li><span class="label">Working at</span> <span class="chip plain">Mediastream AG</span> on <span class="chip plain">ComplyGuard</span> (compliance analytics for regulated iGaming)</li>
+        <li><span class="label">Main stack</span>
+          <span class="chip"><span class="ic i-clickhouse" aria-hidden="true"></span>ClickHouse</span>
+          <span class="chip"><span class="ic i-fastapi" aria-hidden="true"></span>FastAPI</span>
+          <span class="chip"><span class="ic i-airflow" aria-hidden="true"></span>Airflow</span>
+          <span class="chip"><span class="ic i-kubernetes" aria-hidden="true"></span>Kubernetes</span>
+          <span class="chip"><span class="ic i-kafka" aria-hidden="true"></span>Kafka</span>
+          <span class="chip"><span class="ic i-flink" aria-hidden="true"></span>Flink</span>
+        </li>
+        <li><span class="label">Studying</span> <span class="chip plain">Executive MBA</span> at Istanbul Technical University</li>
+      </ul>
+      <p class="intro rise d4">I collect data, process it, and carry it to the point where a decision gets made. Most of my recent work makes the safe path the default: the API adds the tenant filter for you, nobody approves their own rule, and nobody can edit the history.</p>
+      <div class="actions rise d4">
+        <a class="btn primary" href="Ceyhun_Akar_CV.pdf">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12m0 0-5-5m5 5 5-5M4 21h16"/></svg>
+          Download CV
+        </a>
+        <a class="btn" href="https://github.com/akarce">GitHub</a>
+        <a class="btn" href="https://www.linkedin.com/in/akarce/">LinkedIn</a>
+        <a class="btn" href="mailto:akarceyh@gmail.com">Email</a>
+      </div>
+      <ul class="record rise d5">
+        <li><span class="k">role=</span><span class="v">data engineer</span></li>
+        <li><span class="k">since=</span><span class="v">2024-12</span></li>
+        <li><span class="k">team=</span><span class="v">~8 engineers and analysts</span></li>
+        <li><span class="k">tz=</span><span class="v">Istanbul, UTC+3</span></li>
+        <li><span class="k">updated=</span><span class="v">2026-09</span></li>
+      </ul>
+    </div>
+
+    <section id="work" aria-labelledby="work-h">
+      <div class="wrap">
+        <div class="section-head">
+          <h2 id="work-h">Work</h2>
+          <span class="meta">private code, public description</span>
+        </div>
+
+        <article class="entry">
+          <div class="when">Dec 2024 - now<span>Contract, remote</span></div>
+          <div>
+            <h3 class="entry-title">Data Engineer <span class="org">at Mediastream AG</span></h3>
+            <p class="lead">I've been on ComplyGuard since its early months, in a team of about eight engineers and analysts. I started with a trial project through Upwork. Day to day I review and merge teammates' pull requests, and I've run sprint planning and stand-ups when our lead was away.</p>
+            <ul class="work-list">
+              <li>
+                <h4>Two-layer tenant isolation on ClickHouse</h4>
+                <p>A FastAPI query guard adds tenant filters from SSO group memberships. Row-level security policies, generated at deploy time, enforce the same scope inside ClickHouse, so a query that misses its tenant filter still can't return another tenant's rows. Fact tables without a tenant key are denied by default, and a 57-test isolation suite covers both layers.</p>
+                <ul class="tags"><li>ClickHouse</li><li>FastAPI</li><li>Authelia</li><li>LLDAP</li><li>pytest</li></ul>
+              </li>
+              <li>
+                <h4>Analytics API and a no-code dashboard builder</h4>
+                <p>I built most of the analytics backend (now 100+ REST endpoints over 35 tables) and its first Svelte 5 front end. An earlier version of the customer-facing app, with the query guard and dashboard routes, runs in production. In the current version a decorator or a stored definition generates each dashboard's route, permission checks, tenant scoping and response model, and analysts build charts with live preview behind a SQL guard that rejects JOIN, UNION and CTE queries and requires the tenant filter.</p>
+                <ul class="tags"><li>FastAPI</li><li>Pydantic</li><li>SQLAlchemy</li><li>Redis</li><li>Svelte 5</li><li>ECharts</li></ul>
+              </li>
+              <li>
+                <h4>Pipelines on Kubernetes</h4>
+                <p>I deployed Airflow on Kubernetes for two data platforms. On a DNS-based web-filtering platform I split the URL-classification pipeline into independently scheduled scrape, translate and predict stages, so one failing stage no longer stops the others. I also built incremental Cassandra-to-ClickHouse paths (4 Kafka Connect connectors and a nightly PySpark job with high-watermarks), automated Feast feature refresh and NVIDIA Triton model deployment, and moved the MLflow tracking server onto Kubernetes.</p>
+                <ul class="tags"><li>Airflow</li><li>KubernetesPodOperator</li><li>PySpark</li><li>Kafka Connect</li><li>Helm</li><li>MLflow</li></ul>
+              </li>
+              <li>
+                <h4>Streaming KPIs from model scores</h4>
+                <p>I built a streaming path from model scores to KPIs: Kafka Connect on Strimzi pulled AML and responsible-gambling predictions from Cassandra into Kafka, and a PyFlink job split them into 1-minute windowed KPIs and per-transaction score records in ClickHouse. A second PyFlink job rolled DNS hits up into daily per-domain KPIs. Both jobs were retired in 2026.</p>
+                <ul class="tags"><li>Kafka</li><li>Kafka Connect</li><li>PyFlink</li><li>Cassandra</li><li>ClickHouse</li></ul>
+              </li>
+              <li>
+                <h4>SSO, access control and audit</h4>
+                <p>I set up Authelia with TOTP 2FA and LLDAP in front of the analytics app and Superset, with 9 data-driven role groups and GDPR-oriented audit logging. After a security review I changed the API to verify the session itself instead of trusting forwarded identity headers. I also found and closed a gap where a role limited to one dashboard area could fetch another area's data by URL.</p>
+                <ul class="tags"><li>Authelia</li><li>LLDAP</li><li>Superset</li><li>PostgreSQL</li></ul>
+              </li>
+              <li>
+                <h4>Compliance workflows</h4>
+                <p>With the team I built the rule-authoring side of a responsible-gambling rules engine (versioned rules, four-eyes approval, optimistic concurrency) and license, obligation and case management. State changes go through allow-listed state machines, and the audit history is written in the same transaction as the change.</p>
+                <ul class="tags"><li>FastAPI</li><li>SQLAlchemy</li><li>PostgreSQL</li><li>React</li><li>TanStack</li></ul>
+              </li>
+              <li>
+                <h4>Moves and reliability</h4>
+                <p>I planned and verified the move of the production BI and Airflow stack to a new Kubernetes cluster: dashboards, hundreds of charts and about 20,000 historical DAG runs came across intact. Earlier I moved the analytics stack from Docker Compose to Kubernetes, set resource limits across 7 service deployments after OOM kills, and wrote a post-incident analysis of an intermittent cluster tunnel failure.</p>
+                <ul class="tags"><li>Kubernetes</li><li>Rancher</li><li>Superset</li><li>Airflow</li></ul>
+              </li>
             </ul>
-            <div class="theme-switch-wrapper">
-                <label class="theme-switch" for="checkbox">
-                    <input type="checkbox" id="checkbox" />
-                    <div class="slider round"></div>
-                </label>
-            </div>
-        </div>
-    </nav>
-
-    <section id="about" class="home-section">
-        <div class="author-image">
-            <img src="avatar.jpeg" alt="Ceyhun Akar">
-        </div>
-        <div class="author-card">
-            <h1 class="author-name">Ceyhun Akar</h1>
-            <p class="author-role">Data Engineer</p>
-            <div class="social">
-                <a href="mailto:akarceyh@gmail.com" class="social-icon"><i class="fas fa-envelope"></i></a>
-                <a href="https://github.com/akarce" target="_blank" class="social-icon"><i class="fab fa-github"></i></a>
-                <a href="https://www.linkedin.com/in/akarce/" target="_blank" class="social-icon"><i class="fab fa-linkedin"></i></a>
-                <a href="https://medium.com/@akarce" target="_blank" class="social-icon"><i class="fab fa-medium"></i></a>
-                <a href="https://www.upwork.com/freelancers/~01121fd701a2e883f4" target="_blank" class="social-icon"><i class="fas fa-briefcase"></i></a>
-            </div>
-             <a href="Ceyhun_Akar_CV.pdf" class="cv-link" target="_blank">Download CV</a>
-        </div>
+          </div>
+        </article>
+      </div>
     </section>
 
-    <section>
-        <h2 class="section-heading">About Me</h2>
-        <p>I am a passionate Data Engineer with a deep love for coding, analytics, and open-source technologies. I strive to build robust, end-to-end data engineering pipelines using a wide array of tools and frameworks. I continuously learn and adopt best practices in data processing, distributed computing, cloud technologies, and data orchestration to build sustainable and scalable data solutions.</p>
-        <p>I graduated from Istanbul Technical University with a degree in Metallurgical and Materials Engineering.</p>
+    <section id="stack" aria-labelledby="stack-h">
+      <div class="wrap">
+        <div class="section-head">
+          <h2 id="stack-h">Stack</h2>
+          <span class="meta">honest tiers</span>
+        </div>
+        <p class="legend"><span class="chip"><span class="ic i-python" aria-hidden="true"></span>Work stack</span> used in paid work or a live product <span class="chip soft">Built with</span> hands-on in my own projects</p>
+        <dl class="stack">
+          <div class="stack-row">
+            <dt>Streaming</dt>
+            <dd>
+              <span class="chip"><span class="ic i-kafka" aria-hidden="true"></span>Apache Kafka</span>
+              <span class="chip">Kafka Connect</span>
+              <span class="chip"><span class="ic i-flink" aria-hidden="true"></span>Apache Flink (PyFlink)</span>
+              <span class="chip">Spark Structured Streaming</span>
+              <span class="chip soft">Confluent Cloud</span>
+            </dd>
+          </div>
+          <div class="stack-row">
+            <dt>Batch and orchestration</dt>
+            <dd>
+              <span class="chip"><span class="ic i-airflow" aria-hidden="true"></span>Apache Airflow</span>
+              <span class="chip"><span class="ic i-spark" aria-hidden="true"></span>Apache Spark (PySpark)</span>
+              <span class="chip">dbt</span>
+              <span class="chip soft">Apache NiFi</span>
+            </dd>
+          </div>
+          <div class="stack-row">
+            <dt>Storage and query</dt>
+            <dd>
+              <span class="chip"><span class="ic i-clickhouse" aria-hidden="true"></span>ClickHouse</span>
+              <span class="chip"><span class="ic i-postgresql" aria-hidden="true"></span>PostgreSQL</span>
+              <span class="chip"><span class="ic i-cassandra" aria-hidden="true"></span>Apache Cassandra</span>
+              <span class="chip"><span class="ic i-redis" aria-hidden="true"></span>Redis</span>
+              <span class="chip">MySQL</span>
+              <span class="chip soft">Elasticsearch</span>
+              <span class="chip soft">Trino</span>
+              <span class="chip soft">MongoDB</span>
+              <span class="chip soft">Apache Hive</span>
+              <span class="chip soft">MinIO</span>
+            </dd>
+          </div>
+          <div class="stack-row">
+            <dt>BI and visualization</dt>
+            <dd>
+              <span class="chip"><span class="ic i-superset" aria-hidden="true"></span>Apache Superset</span>
+              <span class="chip"><span class="ic i-echarts" aria-hidden="true"></span>Apache ECharts</span>
+              <span class="chip soft">Kibana</span>
+              <span class="chip soft">Tableau</span>
+            </dd>
+          </div>
+          <div class="stack-row">
+            <dt>Platform</dt>
+            <dd>
+              <span class="chip"><span class="ic i-kubernetes" aria-hidden="true"></span>Kubernetes</span>
+              <span class="chip"><span class="ic i-helm" aria-hidden="true"></span>Helm</span>
+              <span class="chip"><span class="ic i-rancher" aria-hidden="true"></span>Rancher (RKE2)</span>
+              <span class="chip"><span class="ic i-k3s" aria-hidden="true"></span>k3s</span>
+              <span class="chip"><span class="ic i-docker" aria-hidden="true"></span>Docker</span>
+              <span class="chip">AWS (S3, ECR, Translate)</span>
+              <span class="chip"><span class="ic i-googlecloud" aria-hidden="true"></span>Google Cloud</span>
+              <span class="chip"><span class="ic i-authelia" aria-hidden="true"></span>Authelia and LLDAP</span>
+              <span class="chip"><span class="ic i-nginx" aria-hidden="true"></span>NGINX Ingress</span>
+              <span class="chip soft">GitHub Actions</span>
+            </dd>
+          </div>
+          <div class="stack-row">
+            <dt>Apps and APIs</dt>
+            <dd>
+              <span class="chip"><span class="ic i-fastapi" aria-hidden="true"></span>FastAPI</span>
+              <span class="chip"><span class="ic i-pydantic" aria-hidden="true"></span>Pydantic</span>
+              <span class="chip"><span class="ic i-sqlalchemy" aria-hidden="true"></span>SQLAlchemy</span>
+              <span class="chip"><span class="ic i-pytest" aria-hidden="true"></span>pytest</span>
+              <span class="chip"><span class="ic i-svelte" aria-hidden="true"></span>Svelte</span>
+              <span class="chip"><span class="ic i-react" aria-hidden="true"></span>React</span>
+              <span class="chip"><span class="ic i-nextjs" aria-hidden="true"></span>Next.js</span>
+            </dd>
+          </div>
+          <div class="stack-row">
+            <dt>ML and AI</dt>
+            <dd>
+              <span class="chip"><span class="ic i-mlflow" aria-hidden="true"></span>MLflow</span>
+              <span class="chip">Feast</span>
+              <span class="chip">NVIDIA Triton</span>
+              <span class="chip soft">Hugging Face Transformers</span>
+              <span class="chip soft">PyTorch</span>
+              <span class="chip soft">Amazon Bedrock</span>
+              <span class="chip soft">CrewAI</span>
+            </dd>
+          </div>
+          <div class="stack-row">
+            <dt>Observability</dt>
+            <dd>
+              <span class="chip"><span class="ic i-prometheus" aria-hidden="true"></span>Prometheus</span>
+              <span class="chip"><span class="ic i-grafana" aria-hidden="true"></span>Grafana</span>
+              <span class="chip">Loki</span>
+              <span class="chip soft">Logstash (ELK)</span>
+            </dd>
+          </div>
+          <div class="stack-row">
+            <dt>Languages</dt>
+            <dd>
+              <span class="chip"><span class="ic i-python" aria-hidden="true"></span>Python</span>
+              <span class="chip">SQL</span>
+              <span class="chip"><span class="ic i-bash" aria-hidden="true"></span>Bash</span>
+              <span class="chip"><span class="ic i-typescript" aria-hidden="true"></span>TypeScript</span>
+            </dd>
+          </div>
+          <div class="stack-row">
+            <dt>Web scraping</dt>
+            <dd>
+              <span class="chip">Playwright</span>
+              <span class="chip">aiohttp</span>
+            </dd>
+          </div>
+        </dl>
+        <div class="also">
+          <p><b>Trained:</b> Databricks, Amazon Redshift, AWS Glue, Amazon Athena, Apache Hadoop, Kafka Streams, ksqlDB, IBM Cognos Analytics, Couchbase.</p>
+          <p><b>Exploring:</b> Terraform, Apache Beam, Dagster, Neo4j, Looker Studio.</p>
+        </div>
+      </div>
     </section>
-    
-    <section id="skills">
-        <h2 class="section-heading">Skills</h2>
-        <h3>🔭 I'm currently working on projects involving:</h3>
-        <div class="tech-icons">
-            <a href="https://www.python.org/" target="_blank"><img src="https://cdn.icon-icons.com/icons2/1508/PNG/512/python_104451.png" alt="python"></a>
-            <a href="https://www.gnu.org/software/bash/"><img src="https://user-images.githubusercontent.com/25181517/192158606-7c2ef6bd-6e04-47cf-b5bc-da2797cb5bda.png" alt="bash"></a>
-            <a href="https://tr.wikipedia.org/wiki/SQL" target="_blank"><img src="https://img.icons8.com/external-bearicons-blue-bearicons/512/external-SQL-file-extension-bearicons-blue-bearicons.png" alt="sql"></a>
-            <a href="https://www.docker.com/" target="_blank"><img src="https://img.icons8.com/color/512/docker.png" alt="docker"></a>
-            <a href="https://aws.amazon.com/" target="_blank"><img src="https://img.icons8.com/color/512/amazon-web-services.png" alt="aws"></a>
-            <a href="https://www.databricks.com/"><img src="https://user-images.githubusercontent.com/25181517/197845567-86a09ca9-d96f-42c4-9ab1-8bce95ab000d.png" alt="databricks"></a>
-            <a href="https://airflow.apache.org/" target="_blank"><img src="https://www.svgrepo.com/show/353380/airflow.svg" alt="airflow"></a>
-            <a href="https://kafka.apache.org/" target="_blank"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Apache_kafka_wordtype.svg/2880px-Apache_kafka_wordtype.svg.png" alt="kafka"></a>
-            <a href="https://www.confluent.io/" target="_blank"><img src="https://companieslogo.com/img/orig/CFLT-c4a50286.png" alt="confluent"></a>
-            <a href="https://spark.apache.org/" target="_blank"><img src="https://ignos.blog/wp-content/uploads/2022/06/apachesparklogo-e1655475818894.png" alt="spark"></a>
-            <a href="https://nifi.apache.org/"><img src="https://upload.wikimedia.org/wikipedia/commons/f/ff/Apache-nifi-logo.svg" alt="nifi"></a>
-            <a href="https://hive.apache.org/"><img src="https://upload.wikimedia.org/wikipedia/commons/b/bb/Apache_Hive_logo.svg" alt="hive"></a>
-            <a href="https://www.elastic.co/elasticsearch" target="_blank"><img src="https://img.icons8.com/color/512/elasticsearch.png" alt="elasticsearch"></a>
-            <a href="https://flink.apache.org/" target="_blank"><img src="https://flink.apache.org/img/logo/png/200/flink_squirrel_200_color.png" alt="flink"></a>
-            <a href="https://kubernetes.io/" target="_blank"><img src="https://upload.wikimedia.org/wikipedia/commons/3/39/Kubernetes_logo_without_workmark.svg" alt="kubernetes"></a>
-            <a href="https://www.rancher.com/" target="_blank"><img src="https://www.rancher.com/assets/img/logos/rancher-logo-horiz-color.svg" alt="rancher"></a>
-            <a href="https://grafana.com/" target="_blank"><img src="https://user-images.githubusercontent.com/25181517/182534075-4962068b-4407-46c2-ac67-ddcb86af30cc.png" alt="grafana"></a>
-            <a href="https://fastapi.tiangolo.com/" target="_blank"><img src="https://upload.wikimedia.org/wikipedia/commons/1/1a/FastAPI_logo.svg" alt="fastapi"></a>
-        </div>
 
-        <h3>🛠️ Databases I work with:</h3>
-        <div class="tech-icons">
-            <a href="https://www.postgresql.org/" target="_blank"><img src="https://img.icons8.com/color/512/postgreesql.png" alt="postgresql"></a>
-            <a href="https://www.mysql.com/" target="_blank"><img src="https://img.icons8.com/color/512/mysql-logo.png" alt="mysql"></a>
-            <a href="https://cassandra.apache.org/_/index.html" target="_blank"><img src="https://upload.wikimedia.org/wikipedia/commons/5/5e/Cassandra_logo.svg" alt="cassandra"></a>
-            <a href="https://www.mongodb.com/" target="_blank"><img src="https://www.opc-router.de/wp-content/uploads/2021/03/mongodb_thumbnail.png" alt="mongodb"></a>
-            <a href="https://couchdb.apache.org/"><img src="https://user-images.githubusercontent.com/25181517/188324073-16ec2fcc-e7d5-401a-9dbf-7c26f23c325f.png" alt="couchdb"></a>
-            <a href="https://trino.io/"><img src="https://upload.wikimedia.org/wikipedia/commons/5/57/Trino-logo-w-bk.svg" alt="trino"></a>
-            <a href="https://clickhouse.com/" target="_blank"><img src="https://upload.wikimedia.org/wikipedia/commons/0/0e/Clickhouse.png" alt="clickhouse"></a>
-            <a href="https://redis.io/" target="_blank"><img src="https://images.icon-icons.com/2415/PNG/512/redis_original_wordmark_logo_icon_146369.png" alt="redis"></a>
+    <section id="projects" aria-labelledby="projects-h">
+      <div class="wrap">
+        <div class="section-head">
+          <h2 id="projects-h">Open-source projects</h2>
+          <span class="meta">2024, learning projects</span>
         </div>
-
-        <h3>📊 BI Tools:</h3>
-        <div class="tech-icons">
-            <a href="https://www.elastic.co/kibana" target="_blank"><img src="https://images.icon-icons.com/2699/PNG/512/elasticco_kibana_logo_icon_169209.png" alt="kibana"></a>
-            <a href="https://www.tableau.com/"><img src="https://logos-world.net/wp-content/uploads/2021/10/Tableau-Symbol.png" alt="tableau"></a>
-            <a href="https://app.powerbi.com/"><img src="https://upload.wikimedia.org/wikipedia/commons/c/cf/New_Power_BI_Logo.svg" alt="powerbi"></a>
-            <a href="https://superset.apache.org/"><img src="https://seeklogo.com/images/S/superset-icon-logo-D70353ADD5-seeklogo.com.png" alt="superset"></a>
-        </div>
-
-        <h3>🌱 I'm currently learning:</h3>
-        <div class="tech-icons">
-            <a href="https://neo4j.com/" target="_blank"><img src="https://user-images.githubusercontent.com/25181517/182884027-02cf00e4-6ac5-49a8-816d-3287a26bc5b4.png" alt="neo4j"></a>
-            <a href="https://www.terraform.io/" target="_blank"><img src="https://ms-devlabs.gallerycdn.vsassets.io/extensions/ms-devlabs/custom-terraform-tasks/0.1.23/1692742494795/Microsoft.VisualStudio.Services.Icons.Default" alt="terraform"></a>
-            <a href="https://www.getdbt.com/" target="_blank"><img src="https://seeklogo.com/images/D/dbt-logo-500AB0BAA7-seeklogo.com.png" alt="dbt"></a>
-            <a href="https://dagster.io/" target="_blank"><img src="https://images.seeklogo.com/logo-png/46/1/dagster-logo-png_seeklogo-464016.png" alt="dagster"></a>
-            <a href="https://lookerstudio.google.com/" target="_blank"><img src="https://www.svgrepo.com/show/354012/looker-icon.svg" alt="looker"></a>
-            <a href="https://beam.apache.org/" target="_blank"><img src="https://beam.apache.org/images/logos/full-color/nameless/beam-logo-full-color-nameless-500.png" alt="beam"></a>
-        </div>
-    </section>
-
-    <section id="posts">
-        <h2 class="section-heading">📝 Latest Blog Posts</h2>
-        <ul>
-            <li><a href="https://medium.com/towards-data-engineering/elk-stack-mastery-building-a-scalable-log-management-system-7adc64313336?source=rss-b1986c49ca90------2">ELK Stack Mastery: Building a Scalable Log Management System</a></li>
-            <li><a href="https://towardsdev.com/data-engineering-with-reddit-api-airflow-hive-postgres-minio-nifi-trino-tableau-and-superset-c5dd71483151?source=rss-b1986c49ca90------2">Data Engineering with Reddit Api, Airflow, Hive, Postgres, MinIO, Nifi, Trino, Tableau and Superset…</a></li>
-            <li><a href="https://towardsdev.com/data-engineering-with-reddit-api-airflow-hive-postgres-minio-nifi-trino-tableau-and-superset-6a35bff30fd0?source=rss-b1986c49ca90------2">Data Engineering with Reddit Api, Airflow, Hive, Postgres, MinIO, Nifi, Trino, Tableau and Superset</a></li>
-            <li><a href="https://towardsdev.com/end-to-end-data-engineering-project-airflow-kafka-cassandra-mongodb-docker-emailoperator-07d48d27bee2?source=rss-b1986c49ca90------2">End to End Data Engineering Project — Airflow, Kafka,Cassandra, MongoDB, Docker, EmailOperator…</a></li>
-            <li><a href="https://medium.com/towards-data-engineering/end-to-end-realtime-streaming-data-engineering-project-using-python-docker-airflow-spark-kafka-ab1568c2ad13?source=rss-b1986c49ca90------2">End-to-End Realtime Streaming Data Engineering Project using Python, Docker, Airflow, Spark, Kafka…</a></li>
+        <ul class="projects">
+          <li>
+            <p class="kind-line">pipeline · video</p>
+            <h3><a href="https://github.com/akarce/real-time-data-pipeline-kafka-mongo-elasticsearch-pyspark">Real-time review sentiment pipeline</a></h3>
+            <p>Reviews stream through Kafka into Spark, get a DistilBERT sentiment label, land in MongoDB and Elasticsearch, and show up in Kibana. The 82-minute build video is the most watched thing I've published.</p>
+            <div class="links"><a href="https://github.com/akarce/real-time-data-pipeline-kafka-mongo-elasticsearch-pyspark">Code</a><a href="https://www.youtube.com/watch?v=RQ7nnobb1N0">Video</a></div>
+          </li>
+          <li>
+            <p class="kind-line">pipeline · <span class="stars">23</span> stars</p>
+            <h3><a href="https://github.com/akarce/e2e-structured-streaming">e2e-structured-streaming</a></h3>
+            <p>Airflow pulls user records from an API into Kafka, and Spark Structured Streaming processes them into Cassandra. Everything runs in Docker Compose.</p>
+            <div class="links"><a href="https://github.com/akarce/e2e-structured-streaming">Code</a><a href="https://medium.com/towards-data-engineering/end-to-end-realtime-streaming-data-engineering-project-using-python-docker-airflow-spark-kafka-ab1568c2ad13">Article</a></div>
+          </li>
+          <li>
+            <p class="kind-line">infrastructure · <span class="stars">10</span> stars</p>
+            <h3><a href="https://github.com/akarce/elk-stack-mastery">elk-stack-mastery</a></h3>
+            <p>A multi-node Elasticsearch, Logstash and Kibana setup with hot, cold and frozen index lifecycle tiers, documented step by step.</p>
+            <div class="links"><a href="https://github.com/akarce/elk-stack-mastery">Code</a><a href="https://www.youtube.com/watch?v=U1i5sIZzEQM">Video</a><a href="https://medium.com/towards-data-engineering/elk-stack-mastery-building-a-scalable-log-management-system-7adc64313336">Article</a></div>
+          </li>
+          <li>
+            <p class="kind-line">pipeline · <span class="stars">5</span> stars</p>
+            <h3><a href="https://github.com/akarce/RedditDataPipeline">RedditDataPipeline</a></h3>
+            <p>Reddit API data moves through NiFi and Airflow into MinIO and Hive, is queried with Trino, and ends up in Superset and Tableau dashboards.</p>
+            <div class="links"><a href="https://github.com/akarce/RedditDataPipeline">Code</a><a href="https://towardsdev.com/data-engineering-with-reddit-api-airflow-hive-postgres-minio-nifi-trino-tableau-and-superset-6a35bff30fd0">Article</a></div>
+          </li>
         </ul>
+        <p class="note">I built these in 2024 to learn the tools end to end. My work at Mediastream lives in private repositories, and the Work section above describes it.</p>
+      </div>
     </section>
 
-    <section id="videos">
-        <h2 class="section-heading">Recent YouTube Videos</h2>
-        <div id="video-list"></div>
-    </section>
-
-    <section id="contact">
-        <h2 class="section-heading">Contact</h2>
-        <p>Feel free to reach out to me via email or connect with me on my social platforms.</p>
-         <div class="social">
-            <a href="mailto:akarceyh@gmail.com" class="contact-link">
-                <i class="fas fa-envelope social-icon"></i> akarceyh@gmail.com
-            </a>
-            <a href="https://www.linkedin.com/in/akarce/" target="_blank" class="contact-link">
-                <i class="fab fa-linkedin social-icon"></i> LinkedIn
-            </a>
+    <section id="writing" aria-labelledby="writing-h">
+      <div class="wrap">
+        <div class="section-head">
+          <h2 id="writing-h">Writing and video</h2>
+          <span class="meta">Medium, YouTube</span>
         </div>
+        <a class="feature" href="https://www.youtube.com/watch?v=RQ7nnobb1N0">
+          <img src="assets/thumb-rq7-640.webp" srcset="assets/thumb-rq7-640.webp 640w, assets/thumb-rq7-960.webp 960w" sizes="(max-width: 760px) calc(100vw - 32px), 240px" width="640" height="360" loading="lazy" decoding="async" alt="">
+          <div class="body">
+            <div class="eyebrow">Most watched</div>
+            <h3>Building a real-time data streaming pipeline with Kafka, Spark and Elasticsearch</h3>
+            <div class="meta">82-minute build, 8,000+ views on YouTube</div>
+          </div>
+        </a>
+        <h3 class="feed-label">Articles</h3>
+        <ul class="feed">
+<!-- MEDIUM-POSTS:START --><li><span class="date">Oct 2024</span><span class="kind">article</span><a href="https://medium.com/towards-data-engineering/elk-stack-mastery-building-a-scalable-log-management-system-7adc64313336">ELK Stack Mastery: Building a Scalable Log Management System</a></li>
+<li><span class="date">Sep 2024</span><span class="kind">article</span><a href="https://towardsdev.com/data-engineering-with-reddit-api-airflow-hive-postgres-minio-nifi-trino-tableau-and-superset-6a35bff30fd0">Data Engineering with Reddit API, Airflow, Hive, NiFi, Trino and Superset &lpar;Part 1&rpar;</a></li>
+<li><span class="date">Sep 2024</span><span class="kind">article</span><a href="https://towardsdev.com/data-engineering-with-reddit-api-airflow-hive-postgres-minio-nifi-trino-tableau-and-superset-c5dd71483151">Data Engineering with Reddit API, Airflow, Hive, NiFi, Trino and Superset &lpar;Part 2&rpar;</a></li>
+<li><span class="date">Aug 2024</span><span class="kind">article</span><a href="https://towardsdev.com/end-to-end-data-engineering-project-airflow-kafka-cassandra-mongodb-docker-emailoperator-07d48d27bee2">End to End Data Engineering Project: Airflow, Kafka, Cassandra, MongoDB, Docker, EmailOperator…</a></li>
+<li><span class="date">Jul 2024</span><span class="kind">article</span><a href="https://medium.com/towards-data-engineering/end-to-end-realtime-streaming-data-engineering-project-using-python-docker-airflow-spark-kafka-ab1568c2ad13">End-to-End Realtime Streaming Data Engineering Project using Python, Docker, Airflow, Spark, Kafka…</a></li>
+<!-- MEDIUM-POSTS:END -->
+        </ul>
+        <h3 class="feed-label">Videos</h3>
+        <ul class="feed">
+<!-- YOUTUBE-VIDEOS:START --><li><span class="date">Nov 2024</span><span class="kind">video</span><a href="https://www.youtube.com/watch?v=U1i5sIZzEQM">ELK Stack Mastery: Building a Scalable Log Management System</a></li>
+<li><span class="date">Oct 2024</span><span class="kind">video</span><a href="https://www.youtube.com/watch?v=RQ7nnobb1N0">Building a Real-Time Data Streaming Pipeline | End to End Project with Kafka Spark and Elasticsearch</a></li>
+<!-- YOUTUBE-VIDEOS:END -->
+        </ul>
+      </div>
     </section>
 
-    <footer>
-        <p>&copy; 2025 Ceyhun Akar</p>
-    </footer>
+    <section id="education" aria-labelledby="edu-h">
+      <div class="wrap">
+        <div class="section-head">
+          <h2 id="edu-h">Education</h2>
+        </div>
+        <ul class="edu">
+          <li><span><strong>Executive MBA</strong> (non-thesis, evening program), Istanbul Technical University</span><span class="when">2026 - now</span></li>
+          <li><span><strong>B.Sc. Metallurgical and Materials Engineering</strong>, Istanbul Technical University</span></li>
+          <li><span>Udacity Data Engineering Nanodegree, IBM Data Engineering Specialization, Apache Kafka and Elasticsearch (BTK Academy)</span><span class="when">2023 - 2024</span></li>
+        </ul>
+      </div>
+    </section>
 
-    <script>
-        // Theme switcher logic
-        const toggleSwitch = document.querySelector('.theme-switch input[type="checkbox"]');
-        const currentTheme = localStorage.getItem('theme');
+    <section id="contact" aria-labelledby="contact-h">
+      <div class="wrap">
+        <div class="section-head">
+          <h2 id="contact-h">Contact</h2>
+        </div>
+        <div class="contact-grid">
+          <div>
+            <p class="lead">Email is the fastest way to reach me, whether it's about a role, a contract or something I wrote.</p>
+            <div class="email-row">
+              <a class="email" href="mailto:akarceyh@gmail.com">akarceyh@gmail.com</a>
+              <button class="copy" type="button" id="copy-email" data-email="akarceyh@gmail.com" hidden>Copy</button>
+              <span class="copy-status" id="copy-status" role="status" aria-live="polite"></span>
+            </div>
+          </div>
+          <ul class="links-list">
+            <li><a href="https://www.linkedin.com/in/akarce/"><span>LinkedIn</span><span class="handle">in/akarce</span></a></li>
+            <li><a href="https://github.com/akarce"><span>GitHub</span><span class="handle">akarce</span></a></li>
+            <li><a href="https://medium.com/@akarce"><span>Medium</span><span class="handle">@akarce</span></a></li>
+            <li><a href="https://www.youtube.com/@ceysdatahub"><span>YouTube</span><span class="handle">@ceysdatahub</span></a></li>
+            <li><a href="https://www.upwork.com/freelancers/~01121fd701a2e883f4"><span>Upwork</span><span class="handle">freelance</span></a></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </main>
 
-        if (currentTheme) {
-            document.body.classList.add(currentTheme);
-        
-            if (currentTheme === 'dark-mode') {
-                toggleSwitch.checked = true;
-            }
-        }
-
-        function switchTheme(e) {
-            if (e.target.checked) {
-                document.body.classList.add('dark-mode');
-                localStorage.setItem('theme', 'dark-mode');
-            }
-            else {
-                document.body.classList.remove('dark-mode');
-                localStorage.setItem('theme', 'light-mode');
-            }    
-        }
-
-        toggleSwitch.addEventListener('change', switchTheme, false);
-
-        // YouTube fetch logic
-        const channelID = 'UC7JlvHDfxFYKc03CwW1QjVA';
-        const apiKey = 'AIzaSyDiJTtwGMfc-FYxACHPOwWhr2fNudV7uRo'; // NOTE: This key is public and may be disabled.
-
-        fetch(`https://www.googleapis.com/youtube/v3/search?key=${apiKey}&channelId=${channelID}&part=snippet,id&order=date&maxResults=1`)
-            .then(response => response.json())
-            .then(data => {
-                const videos = data.items;
-                const videoList = document.getElementById('video-list');
-                if (videos && videos.length > 0) {
-                    videos.forEach(video => {
-                        const videoId = video.id.videoId;
-                        const videoTitle = video.snippet.title;
-                        const videoEmbed = `<div class="video-container"><iframe src="https://www.youtube.com/embed/${videoId}" frameborder="0" allowfullscreen></iframe></div>`;
-                        videoList.innerHTML += `<h3>${videoTitle}</h3>${videoEmbed}`;
-                    });
-                } else {
-                    videoList.innerHTML = "<p>Could not load recent videos.</p>";
-                }
-            })
-            .catch(error => {
-                console.error('Error fetching YouTube data:', error);
-                document.getElementById('video-list').innerHTML = "<p>Could not load recent videos.</p>";
-            });
-    </script>
-
+  <footer class="site-footer">
+    <div class="wrap">
+      <p>Set in Archivo and IBM Plex. Hand-written HTML and CSS: no framework, no analytics, no cookies, no third-party requests. Icons from Simple Icons.</p>
+      <p><a href="https://github.com/akarce/akarce.github.io">Source on GitHub</a> · Updated September 2026 · Ceyhun Akar, Istanbul</p>
+    </div>
+  </footer>
 </body>
 </html>

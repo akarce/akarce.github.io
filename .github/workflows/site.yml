@@ -1,0 +1,132 @@
+name: Refresh feeds and deploy
+
+# One workflow for the whole site:
+#   - on push: deploy what's in main
+#   - daily and on demand: pull the latest Medium posts and YouTube videos into
+#     index.html (between the MEDIUM-POSTS / YOUTUBE-VIDEOS markers), commit, then deploy.
+# No API keys: both feeds are public RSS/Atom.
+
+on:
+  push:
+    branches: [main]
+  schedule:
+    - cron: "17 5 * * *"
+  workflow_dispatch:
+
+permissions: {}
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    if: github.event_name != 'push' && github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Medium posts
+        continue-on-error: true
+        # v1 (1.9.7), pinned to a commit so a moved tag can't change what runs here
+        uses: gautamkrishnar/blog-post-workflow@f177491c77670f150ab4e9b9890254d8eba4164b
+        with:
+          readme_path: ./index.html
+          comment_tag_name: MEDIUM-POSTS
+          feed_list: https://medium.com/feed/@akarce
+          max_post_count: 5
+          date_format: mmm yyyy
+          template: '<li><span class="date">$date</span><span class="kind">article</span><a href="$url">$title</a></li>$newline'
+          # Strip Medium's ?source= tracking, drop the course write-up, label the Reddit
+          # two-parter and keep Part 1 above Part 2 (they share a publish day).
+          item_exec: |
+            post.url = post.url.split('?')[0];
+            post.title = post.title.replace(/\s*\u2014\s*/g, ': ');
+            if (/^Udacity Data Pipeline/.test(post.title)) {
+              post = null;
+            } else if (/Reddit Api/i.test(post.title)) {
+              var part2 = post.url.indexOf('c5dd71483151') > -1;
+              post.title = 'Data Engineering with Reddit API, Airflow, Hive, NiFi, Trino and Superset (Part ' + (part2 ? '2' : '1') + ')';
+              if (part2 && post.date) post.date = new Date(post.date.getTime() - 12 * 3600 * 1000);
+            } else if (post.url.indexOf('07d48d27bee2') > -1) {
+              post.title = post.title.replace('Kafka,Cassandra', 'Kafka, Cassandra');
+            }
+          commit_message: "chore(site): refresh Medium posts"
+          dummy_commit_message: "chore(site): keep the daily feed refresh active"
+          committer_username: akarce
+          committer_email: 39713866+akarce@users.noreply.github.com
+
+      - name: YouTube videos
+        continue-on-error: true
+        uses: gautamkrishnar/blog-post-workflow@f177491c77670f150ab4e9b9890254d8eba4164b
+        with:
+          readme_path: ./index.html
+          comment_tag_name: YOUTUBE-VIDEOS
+          # Long-form uploads only (UULF playlist), so Shorts don't crowd the list.
+          feed_list: https://www.youtube.com/feeds/videos.xml?playlist_id=UULF7JlvHDfxFYKc03CwW1QjVA
+          max_post_count: 4
+          date_format: mmm yyyy
+          template: '<li><span class="date">$date</span><span class="kind">video</span><a href="$url">$title</a></li>$newline'
+          item_exec: |
+            post.title = post.title.replace(/\s*\u2014\s*/g, ': ');
+          enable_keepalive: false
+          commit_message: "chore(site): refresh YouTube videos"
+          committer_username: akarce
+          committer_email: 39713866+akarce@users.noreply.github.com
+
+  deploy:
+    needs: refresh
+    # Runs after a refresh, and on pushes (where refresh is skipped). A feed outage never blocks it.
+    if: ${{ !cancelled() && github.ref == 'refs/heads/main' }}
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      # Check out the tip of main, not the event SHA, so a feed commit made a minute ago ships too.
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.ref }}
+
+      # The page's meta CSP allows the one inline script by its hash. If someone edits that
+      # script without updating the hash, the saved theme silently stops applying, so fail here.
+      - name: Check the CSP hash matches the inline script
+        run: |
+          python3 - <<'PY'
+          import base64, hashlib, re, sys
+          html = open("index.html", encoding="utf-8").read()
+          m = re.search(r'http-equiv="Content-Security-Policy" content="([^"]+)"', html)
+          if not m:
+              sys.exit("CSP meta tag not found in index.html")
+          csp = m.group(1)
+          # Inline scripts only: skip src= scripts and JSON data blocks, which CSP doesn't govern.
+          scripts = [s.group(2) for s in re.finditer(r"<script(\s[^>]*)?>(.*?)</script>", html, re.S)
+                     if not re.search(r"\bsrc=|application/(ld\+)?json", s.group(1) or "")]
+          missing = []
+          for body in scripts:
+              digest = base64.b64encode(hashlib.sha256(body.encode("utf-8")).digest()).decode()
+              if f"'sha256-{digest}'" not in csp:
+                  missing.append(digest)
+          if missing:
+              sys.exit(f"CSP is missing script hashes: {missing}")
+          print(f"CSP hashes OK for {len(scripts)} inline script(s)")
+          PY
+
+      - name: Assemble site
+        run: |
+          mkdir -p _site
+          cp index.html favicon.svg robots.txt sitemap.xml llms.txt .nojekyll Ceyhun_Akar_CV.pdf _site/
+          cp -R assets _site/
+
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+      - id: deployment
+        uses: actions/deploy-pages@v4
