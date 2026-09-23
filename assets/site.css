@@ -173,11 +173,7 @@ a, button, .projects > li { transition: color 0.15s var(--ease), background-colo
 }
 .chip.plain { color: var(--ink); }
 .chip.soft { background: transparent; border-color: var(--rule); color: var(--muted); }
-.ic {
-  display: inline-block; width: 14px; height: 14px; flex: none; background: currentColor;
-  -webkit-mask-size: contain; mask-size: contain; -webkit-mask-repeat: no-repeat; mask-repeat: no-repeat;
-  -webkit-mask-position: center; mask-position: center;
-}
+.ic { display: inline-block; width: 16px; height: 16px; flex: none; background: center / contain no-repeat; }
 
 /* Sections */
 section { padding-block: clamp(36px, 6vw, 60px); border-top: 1px solid var(--rule); }
@@ -206,9 +202,10 @@ h3, h4 { font-size: 1.06rem; line-height: 1.35; margin: 0 0 6px; font-weight: 60
 .stack-row dt { font-weight: 600; font-size: 0.95rem; padding-top: 2px; }
 .stack-row dd { margin: 0; display: flex; flex-wrap: wrap; gap: 6px; align-items: center; }
 .legend { display: flex; flex-wrap: wrap; gap: 8px 16px; align-items: center; color: var(--muted); font-size: 0.85rem; margin: 0 0 18px; }
-.also { margin: 18px 0 0; padding-top: 14px; border-top: 1px dashed var(--rule); display: grid; gap: 6px; color: var(--muted); font-size: 0.93rem; }
-.also p { margin: 0; }
-.also b { color: var(--ink); font-weight: 600; }
+.also { margin: 18px 0 0; padding-top: 14px; border-top: 1px dashed var(--rule); }
+.also .stack-row { border-top: 0; padding-block: 5px; }
+.also .stack-row dt { color: var(--muted); font-weight: 500; }
+.chip.ghost { background: transparent; color: var(--muted); padding-inline: 2px 8px; }
 
 /* Projects: dim the others while one is hovered */
 .projects { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 28px; }
@@ -303,37 +300,98 @@ h3, h4 { font-size: 1.06rem; line-height: 1.35; margin: 0 0 6px; font-weight: 60
   .projects > li { opacity: 1 !important; }
 }
 
-/* Icon masks (Simple Icons 13.21.0, see icons/LICENSES.txt) */
-.i-kafka { -webkit-mask-image: url("icons/apachekafka.svg"); mask-image: url("icons/apachekafka.svg"); }
-.i-flink { -webkit-mask-image: url("icons/apacheflink.svg"); mask-image: url("icons/apacheflink.svg"); }
-.i-airflow { -webkit-mask-image: url("icons/apacheairflow.svg"); mask-image: url("icons/apacheairflow.svg"); }
-.i-spark { -webkit-mask-image: url("icons/apachespark.svg"); mask-image: url("icons/apachespark.svg"); }
-.i-clickhouse { -webkit-mask-image: url("icons/clickhouse.svg"); mask-image: url("icons/clickhouse.svg"); }
-.i-postgresql { -webkit-mask-image: url("icons/postgresql.svg"); mask-image: url("icons/postgresql.svg"); }
-.i-cassandra { -webkit-mask-image: url("icons/apachecassandra.svg"); mask-image: url("icons/apachecassandra.svg"); }
-.i-redis { -webkit-mask-image: url("icons/redis.svg"); mask-image: url("icons/redis.svg"); }
-.i-superset { -webkit-mask-image: url("icons/apachesuperset.svg"); mask-image: url("icons/apachesuperset.svg"); }
-.i-echarts { -webkit-mask-image: url("icons/apacheecharts.svg"); mask-image: url("icons/apacheecharts.svg"); }
-.i-kubernetes { -webkit-mask-image: url("icons/kubernetes.svg"); mask-image: url("icons/kubernetes.svg"); }
-.i-helm { -webkit-mask-image: url("icons/helm.svg"); mask-image: url("icons/helm.svg"); }
-.i-rancher { -webkit-mask-image: url("icons/rancher.svg"); mask-image: url("icons/rancher.svg"); }
-.i-k3s { -webkit-mask-image: url("icons/k3s.svg"); mask-image: url("icons/k3s.svg"); }
-.i-docker { -webkit-mask-image: url("icons/docker.svg"); mask-image: url("icons/docker.svg"); }
-.i-googlecloud { -webkit-mask-image: url("icons/googlecloud.svg"); mask-image: url("icons/googlecloud.svg"); }
-.i-authelia { -webkit-mask-image: url("icons/authelia.svg"); mask-image: url("icons/authelia.svg"); }
-.i-nginx { -webkit-mask-image: url("icons/nginx.svg"); mask-image: url("icons/nginx.svg"); }
-.i-fastapi { -webkit-mask-image: url("icons/fastapi.svg"); mask-image: url("icons/fastapi.svg"); }
-.i-pydantic { -webkit-mask-image: url("icons/pydantic.svg"); mask-image: url("icons/pydantic.svg"); }
-.i-sqlalchemy { -webkit-mask-image: url("icons/sqlalchemy.svg"); mask-image: url("icons/sqlalchemy.svg"); }
-.i-pytest { -webkit-mask-image: url("icons/pytest.svg"); mask-image: url("icons/pytest.svg"); }
-.i-svelte { -webkit-mask-image: url("icons/svelte.svg"); mask-image: url("icons/svelte.svg"); }
-.i-react { -webkit-mask-image: url("icons/react.svg"); mask-image: url("icons/react.svg"); }
-.i-nextjs { -webkit-mask-image: url("icons/nextdotjs.svg"); mask-image: url("icons/nextdotjs.svg"); }
-.i-typescript { -webkit-mask-image: url("icons/typescript.svg"); mask-image: url("icons/typescript.svg"); }
-.i-mlflow { -webkit-mask-image: url("icons/mlflow.svg"); mask-image: url("icons/mlflow.svg"); }
-.i-huggingface { -webkit-mask-image: url("icons/huggingface.svg"); mask-image: url("icons/huggingface.svg"); }
-.i-pytorch { -webkit-mask-image: url("icons/pytorch.svg"); mask-image: url("icons/pytorch.svg"); }
-.i-python { -webkit-mask-image: url("icons/python.svg"); mask-image: url("icons/python.svg"); }
-.i-bash { -webkit-mask-image: url("icons/gnubash.svg"); mask-image: url("icons/gnubash.svg"); }
-.i-grafana { -webkit-mask-image: url("icons/grafana.svg"); mask-image: url("icons/grafana.svg"); }
-.i-prometheus { -webkit-mask-image: url("icons/prometheus.svg"); mask-image: url("icons/prometheus.svg"); }
+/* Brand logos, self-hosted originals (see logos/LICENSES.txt). */
+.i-kafka { background-image: url("logos/kafka.svg"); }
+.i-flink { background-image: url("logos/flink.png"); }
+.i-spark { background-image: url("logos/spark.svg"); }
+.i-airflow { background-image: url("logos/airflow.svg"); }
+.i-dbt { background-image: url("logos/dbt.svg"); }
+.i-nifi { background-image: url("logos/nifi.svg"); }
+.i-clickhouse { background-image: url("logos/clickhouse.svg"); }
+.i-postgresql { background-image: url("logos/postgresql.svg"); }
+.i-cassandra { background-image: url("logos/cassandra.svg"); }
+.i-redis { background-image: url("logos/redis.svg"); }
+.i-mysql { background-image: url("logos/mysql.svg"); }
+.i-elasticsearch { background-image: url("logos/elasticsearch.svg"); }
+.i-trino { background-image: url("logos/trino.svg"); }
+.i-mongodb { background-image: url("logos/mongodb.svg"); }
+.i-hive { background-image: url("logos/hive.svg"); }
+.i-minio { background-image: url("logos/minio.svg"); }
+.i-superset { background-image: url("logos/superset.svg"); }
+.i-echarts { background-image: url("logos/echarts.svg"); }
+.i-kibana { background-image: url("logos/kibana.svg"); }
+.i-tableau { background-image: url("logos/tableau.svg"); }
+.i-kubernetes { background-image: url("logos/kubernetes.svg"); }
+.i-helm { background-image: url("logos/helm.svg"); }
+.i-rancher { background-image: url("logos/rancher.svg"); }
+.i-k3s { background-image: url("logos/k3s.svg"); }
+.i-docker { background-image: url("logos/docker.svg"); }
+.i-aws { background-image: url("logos/aws.svg"); }
+.i-googlecloud { background-image: url("logos/googlecloud.svg"); }
+.i-authelia { background-image: url("logos/authelia.svg"); }
+.i-nginx { background-image: url("logos/nginx.svg"); }
+.i-githubactions { background-image: url("logos/githubactions.svg"); }
+.i-fastapi { background-image: url("logos/fastapi.svg"); }
+.i-pydantic { background-image: url("logos/pydantic.svg"); }
+.i-sqlalchemy { background-image: url("logos/sqlalchemy.svg"); }
+.i-pytest { background-image: url("logos/pytest.svg"); }
+.i-svelte { background-image: url("logos/svelte.svg"); }
+.i-react { background-image: url("logos/react.svg"); }
+.i-nextjs { background-image: url("logos/nextjs.svg"); }
+.i-mlflow { background-image: url("logos/mlflow.svg"); }
+.i-nvidia { background-image: url("logos/nvidia.svg"); }
+.i-huggingface { background-image: url("logos/huggingface.svg"); }
+.i-pytorch { background-image: url("logos/pytorch.svg"); }
+.i-crewai { background-image: url("logos/crewai.svg"); }
+.i-prometheus { background-image: url("logos/prometheus.svg"); }
+.i-grafana { background-image: url("logos/grafana.svg"); }
+.i-loki { background-image: url("logos/loki.png"); }
+.i-logstash { background-image: url("logos/logstash.svg"); }
+.i-python { background-image: url("logos/python.svg"); }
+.i-bash { background-image: url("logos/bash.svg"); }
+.i-typescript { background-image: url("logos/typescript.svg"); }
+.i-playwright { background-image: url("logos/playwright.svg"); }
+.i-aiohttp { background-image: url("logos/aiohttp.svg"); }
+.i-databricks { background-image: url("logos/databricks.svg"); }
+.i-redshift { background-image: url("logos/redshift.svg"); }
+.i-hadoop { background-image: url("logos/hadoop.svg"); }
+.i-couchbase { background-image: url("logos/couchbase.svg"); }
+.i-terraform { background-image: url("logos/terraform.svg"); }
+.i-beam { background-image: url("logos/beam.svg"); }
+.i-dagster { background-image: url("logos/dagster.svg"); }
+.i-neo4j { background-image: url("logos/neo4j.svg"); }
+/* Reverse versions for logos drawn in dark ink. */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .i-kafka { background-image: url("logos/kafka-dark.svg"); }
+  :root:not([data-theme="light"]) .i-cassandra { background-image: url("logos/cassandra-dark.svg"); }
+  :root:not([data-theme="light"]) .i-mysql { background-image: url("logos/mysql-dark.svg"); }
+  :root:not([data-theme="light"]) .i-elasticsearch { background-image: url("logos/elasticsearch-dark.svg"); }
+  :root:not([data-theme="light"]) .i-hive { background-image: url("logos/hive-dark.svg"); }
+  :root:not([data-theme="light"]) .i-echarts { background-image: url("logos/echarts-dark.svg"); }
+  :root:not([data-theme="light"]) .i-kibana { background-image: url("logos/kibana-dark.svg"); }
+  :root:not([data-theme="light"]) .i-helm { background-image: url("logos/helm-dark.svg"); }
+  :root:not([data-theme="light"]) .i-aws { background-image: url("logos/aws-dark.svg"); }
+  :root:not([data-theme="light"]) .i-authelia { background-image: url("logos/authelia-dark.svg"); }
+  :root:not([data-theme="light"]) .i-sqlalchemy { background-image: url("logos/sqlalchemy-dark.svg"); }
+  :root:not([data-theme="light"]) .i-nextjs { background-image: url("logos/nextjs-dark.svg"); }
+  :root:not([data-theme="light"]) .i-logstash { background-image: url("logos/logstash-dark.svg"); }
+  :root:not([data-theme="light"]) .i-bash { background-image: url("logos/bash-dark.svg"); }
+  :root:not([data-theme="light"]) .i-aiohttp { background-image: url("logos/aiohttp-dark.svg"); }
+  :root:not([data-theme="light"]) .i-neo4j { background-image: url("logos/neo4j-dark.svg"); }
+}
+:root[data-theme="dark"] .i-kafka { background-image: url("logos/kafka-dark.svg"); }
+:root[data-theme="dark"] .i-cassandra { background-image: url("logos/cassandra-dark.svg"); }
+:root[data-theme="dark"] .i-mysql { background-image: url("logos/mysql-dark.svg"); }
+:root[data-theme="dark"] .i-elasticsearch { background-image: url("logos/elasticsearch-dark.svg"); }
+:root[data-theme="dark"] .i-hive { background-image: url("logos/hive-dark.svg"); }
+:root[data-theme="dark"] .i-echarts { background-image: url("logos/echarts-dark.svg"); }
+:root[data-theme="dark"] .i-kibana { background-image: url("logos/kibana-dark.svg"); }
+:root[data-theme="dark"] .i-helm { background-image: url("logos/helm-dark.svg"); }
+:root[data-theme="dark"] .i-aws { background-image: url("logos/aws-dark.svg"); }
+:root[data-theme="dark"] .i-authelia { background-image: url("logos/authelia-dark.svg"); }
+:root[data-theme="dark"] .i-sqlalchemy { background-image: url("logos/sqlalchemy-dark.svg"); }
+:root[data-theme="dark"] .i-nextjs { background-image: url("logos/nextjs-dark.svg"); }
+:root[data-theme="dark"] .i-logstash { background-image: url("logos/logstash-dark.svg"); }
+:root[data-theme="dark"] .i-bash { background-image: url("logos/bash-dark.svg"); }
+:root[data-theme="dark"] .i-aiohttp { background-image: url("logos/aiohttp-dark.svg"); }
+:root[data-theme="dark"] .i-neo4j { background-image: url("logos/neo4j-dark.svg"); }

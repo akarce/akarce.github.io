@@ -1,0 +1,24 @@
+Logos next to each technology name in the Stack section. Files ending in -dark.svg are the
+same logo with its dark ink swapped for a light one, used on the dark theme.
+
+Devicon 2.17.0 (MIT, https://github.com/devicons/devicon), "original" variants:
+  airflow, aws, bash, cassandra, clickhouse, couchbase, docker, elasticsearch, fastapi,
+  githubactions, googlecloud, grafana, hadoop, helm, k3s, kafka, kibana, kubernetes, logstash,
+  mongodb, mysql, neo4j, nextjs, playwright, postgresql, prometheus, pytest, python, pytorch,
+  rancher, react, redis, spark, sqlalchemy, svelte, terraform, typescript
+
+Simple Icons 13.21.0 (https://simpleicons.org; crewai from 16.32.0), filled with the brand color:
+  aiohttp, databricks, dbt, echarts, hive-dark, minio, mlflow, nginx, nifi, nvidia, pydantic,
+  redshift, superset, tableau, trino, crewai
+
+The projects' own files:
+  flink       apache/flink-web, img/logo/png/100/flink_squirrel_100_color.png (Apache-2.0)
+  beam        apache/beam, website logos/3-color/nameless (Apache-2.0)
+  dagster     dagster-io/dagster, docs/static/images/dagster-primary-mark.svg (Apache-2.0)
+  authelia    authelia/authelia, docs/static/svgs/branding/logo-cropped.svg (Apache-2.0)
+  hive        Wikimedia Commons, File:Apache_Hive_logo.svg (Apache-2.0)
+  huggingface huggingface.co/front/assets/huggingface_logo-noborder.svg
+  loki        grafana/loki, docs/sources/logo.png
+
+All names and marks are trademarks of their respective owners. They are used only to name the
+technologies I work with and do not imply endorsement.
