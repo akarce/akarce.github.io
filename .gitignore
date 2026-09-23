@@ -2,3 +2,4 @@
 .playwright-mcp/
 _site/
 *.render.html
+__pycache__/
