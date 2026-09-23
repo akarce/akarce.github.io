@@ -1,0 +1,76 @@
+{
+  "projects": [
+    {
+      "id": "realtime",
+      "title": "Real-time review sentiment pipeline",
+      "repo": "real-time-data-pipeline-kafka-mongo-elasticsearch-pyspark",
+      "kind": "pipeline",
+      "blurb": "Reviews stream through Kafka into Spark, get a DistilBERT sentiment label, land in MongoDB and Elasticsearch, and show up in Kibana. The 82-minute build video is the most watched thing I've published.",
+      "tags": [["kafka", "Kafka"], ["spark", "Spark"], ["huggingface", "DistilBERT"], ["mongodb", "MongoDB"], ["elasticsearch", "Elasticsearch"], ["kibana", "Kibana"]],
+      "videos": ["RQ7nnobb1N0"],
+      "articles": []
+    },
+    {
+      "id": "elk",
+      "title": "ELK log management with lifecycle tiers",
+      "repo": "elk-stack-mastery",
+      "kind": "infrastructure",
+      "blurb": "A multi-node Elasticsearch, Logstash and Kibana setup with hot, cold and frozen index lifecycle tiers, documented step by step.",
+      "tags": [["elasticsearch", "Elasticsearch"], ["logstash", "Logstash"], ["kibana", "Kibana"], ["docker", "Docker"]],
+      "videos": ["U1i5sIZzEQM"],
+      "articles": ["7adc64313336"]
+    },
+    {
+      "id": "structured-streaming",
+      "title": "Streaming API records into Cassandra",
+      "repo": "e2e-structured-streaming",
+      "kind": "pipeline",
+      "blurb": "Airflow pulls user records from an API into Kafka, and Spark Structured Streaming processes them into Cassandra. Everything runs in Docker Compose.",
+      "tags": [["airflow", "Airflow"], ["kafka", "Kafka"], ["spark", "Spark"], ["cassandra", "Cassandra"], ["docker", "Docker"]],
+      "videos": [],
+      "articles": ["ab1568c2ad13"]
+    },
+    {
+      "id": "reddit",
+      "title": "Reddit data platform",
+      "repo": "RedditDataPipeline",
+      "kind": "pipeline",
+      "blurb": "Reddit API data moves through NiFi and Airflow into MinIO and Hive, is queried with Trino, and ends up in Superset and Tableau dashboards.",
+      "tags": [["nifi", "NiFi"], ["airflow", "Airflow"], ["minio", "MinIO"], ["hive", "Hive"], ["trino", "Trino"], ["superset", "Superset"]],
+      "videos": [],
+      "articles": ["6a35bff30fd0", "c5dd71483151"]
+    },
+    {
+      "id": "otp",
+      "title": "One-time code delivery pipeline",
+      "repo": "e2e-otp-pipeline",
+      "kind": "pipeline",
+      "blurb": "Airflow writes email addresses to a three-broker Kafka cluster, loads them into Cassandra and MongoDB, checks the email and one-time code in both, and sends the code by email, Slack and Discord.",
+      "tags": [["airflow", "Airflow"], ["kafka", "Kafka"], ["cassandra", "Cassandra"], ["mongodb", "MongoDB"], ["docker", "Docker"]],
+      "videos": [],
+      "articles": ["07d48d27bee2"]
+    }
+  ],
+  "github_user": "akarce",
+  "medium": {
+    "feed": "https://medium.com/feed/@akarce",
+    "max": 6,
+    "skip": ["60f04f99efed"],
+    "titles": {
+      "6a35bff30fd0": "Data Engineering with Reddit API, Airflow, Hive, NiFi, Trino and Superset (Part 1)",
+      "c5dd71483151": "Data Engineering with Reddit API, Airflow, Hive, NiFi, Trino and Superset (Part 2)",
+      "07d48d27bee2": "End to End Data Engineering OTP Pipeline Project: Airflow, Kafka, Cassandra, MongoDB, Docker, EmailOperator, SlackWebhookOperator, DiscordWebhookOperator"
+    },
+    "labels": {
+      "6a35bff30fd0": "Part 1",
+      "c5dd71483151": "Part 2"
+    },
+    "sort_shift_hours": {
+      "c5dd71483151": -12
+    }
+  },
+  "youtube": {
+    "feed": "https://www.youtube.com/feeds/videos.xml?playlist_id=UULF7JlvHDfxFYKc03CwW1QjVA",
+    "max": 6
+  }
+}

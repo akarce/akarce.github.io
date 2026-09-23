@@ -1,0 +1,61 @@
+{
+  "articles": [
+    {
+      "date": "2024-10-17T04:07:52+00:00",
+      "id": "7adc64313336",
+      "title": "ELK Stack Mastery: Building a Scalable Log Management System",
+      "url": "https://medium.com/towards-data-engineering/elk-stack-mastery-building-a-scalable-log-management-system-7adc64313336"
+    },
+    {
+      "date": "2024-09-08T21:12:50+00:00",
+      "id": "c5dd71483151",
+      "title": "Data Engineering with Reddit Api, Airflow, Hive, Postgres, MinIO, Nifi, Trino, Tableau and Superset -Part 2-",
+      "url": "https://towardsdev.com/data-engineering-with-reddit-api-airflow-hive-postgres-minio-nifi-trino-tableau-and-superset-c5dd71483151"
+    },
+    {
+      "date": "2024-09-08T10:15:17+00:00",
+      "id": "6a35bff30fd0",
+      "title": "Data Engineering with Reddit Api, Airflow, Hive, Postgres, MinIO, Nifi, Trino, Tableau and Superset",
+      "url": "https://towardsdev.com/data-engineering-with-reddit-api-airflow-hive-postgres-minio-nifi-trino-tableau-and-superset-6a35bff30fd0"
+    },
+    {
+      "date": "2024-08-07T01:56:20+00:00",
+      "id": "07d48d27bee2",
+      "title": "End to End Data Engineering Project: Airflow, Kafka, Cassandra, MongoDB, Docker, EmailOperator…",
+      "url": "https://towardsdev.com/end-to-end-data-engineering-project-airflow-kafka-cassandra-mongodb-docker-emailoperator-07d48d27bee2"
+    },
+    {
+      "date": "2024-07-25T02:16:07+00:00",
+      "id": "ab1568c2ad13",
+      "title": "End-to-End Realtime Streaming Data Engineering Project using Python, Docker, Airflow, Spark, Kafka, Cassandra",
+      "url": "https://medium.com/towards-data-engineering/end-to-end-realtime-streaming-data-engineering-project-using-python-docker-airflow-spark-kafka-ab1568c2ad13"
+    },
+    {
+      "date": "2024-07-14T20:47:39+00:00",
+      "id": "60f04f99efed",
+      "title": "Udacity Data Pipeline with Airflow",
+      "url": "https://medium.com/@akarce/udacity-data-pipeline-with-airflow-60f04f99efed"
+    }
+  ],
+  "stars": {
+    "RedditDataPipeline": 5,
+    "e2e-otp-pipeline": 2,
+    "e2e-structured-streaming": 23,
+    "elk-stack-mastery": 10,
+    "real-time-data-pipeline-kafka-mongo-elasticsearch-pyspark": 3
+  },
+  "videos": [
+    {
+      "date": "2024-11-04T16:41:47+00:00",
+      "id": "U1i5sIZzEQM",
+      "title": "ELK Stack Mastery: Building a Scalable Log Management System",
+      "views": 500
+    },
+    {
+      "date": "2024-10-03T09:32:34+00:00",
+      "id": "RQ7nnobb1N0",
+      "title": "Building a Real-Time Data Streaming Pipeline | End to End Project with Kafka Spark and Elasticsearch",
+      "views": 8000
+    }
+  ]
+}

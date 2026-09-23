@@ -1,4 +1,4 @@
-// Theme toggle and copy-email. The inline pre-paint script in <head> has already applied a
+// Theme toggle, copy-email and click-to-play videos. The inline pre-paint script in <head> has already applied a
 // saved theme. The toggle stays hidden until this file adds "theme-ready", so it never shows dead.
 (function () {
   var root = document.documentElement;
@@ -58,4 +58,23 @@
       });
     });
   }
+
+  // Videos: each thumbnail is a plain link to YouTube. A plain click swaps it for the
+  // youtube-nocookie player in place, so nothing loads from YouTube until someone asks.
+  // Modified and middle clicks still open YouTube as a normal link would.
+  document.addEventListener("click", function (e) {
+    var link = e.target && e.target.closest ? e.target.closest("a.yt") : null;
+    if (!link || e.defaultPrevented || e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+    var id = link.getAttribute("data-yt") || "";
+    if (!/^[A-Za-z0-9_-]{11}$/.test(id)) return;
+    e.preventDefault();
+    var frame = document.createElement("iframe");
+    frame.setAttribute("src", "https://www.youtube-nocookie.com/embed/" + id + "?autoplay=1&rel=0");
+    frame.setAttribute("title", link.getAttribute("data-title") || "YouTube video");
+    frame.setAttribute("allow", "autoplay; encrypted-media; picture-in-picture; fullscreen");
+    // The embed refuses to play without a referrer (error 153).
+    frame.setAttribute("referrerpolicy", "strict-origin-when-cross-origin");
+    link.parentNode.replaceChild(frame, link);
+    frame.focus();
+  });
 })();

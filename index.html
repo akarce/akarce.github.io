@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' 'sha256-LoCX9nwMTGxoAkfZR30QoLla4b0wh3OQGsedBbEfDsc='; style-src 'self'; font-src 'self'; img-src 'self'; manifest-src 'self'; connect-src 'self'; base-uri 'none'; form-action 'none'; require-trusted-types-for 'script'">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' 'sha256-LoCX9nwMTGxoAkfZR30QoLla4b0wh3OQGsedBbEfDsc='; style-src 'self'; font-src 'self'; img-src 'self'; manifest-src 'self'; connect-src 'self'; frame-src https://www.youtube-nocookie.com; base-uri 'none'; form-action 'none'; require-trusted-types-for 'script'">
   <title>Ceyhun Akar | Data Engineer (Kafka, Flink, ClickHouse, Kubernetes)</title>
   <meta name="description" content="Ceyhun Akar is a data engineer in Istanbul. He builds streaming pipelines and secure, multi-tenant analytics platforms with Kafka, Flink, Spark, Airflow, ClickHouse and Kubernetes.">
   <meta name="author" content="Ceyhun Akar">
@@ -96,49 +96,57 @@
         <a href="#projects">Projects</a>
         <a href="#writing">Writing</a>
         <a href="#contact">Contact</a>
+      </nav>
+      <div class="head-actions">
         <a class="cv" href="Ceyhun_Akar_CV.pdf">CV (PDF)</a>
         <button class="theme-toggle" type="button" id="theme-toggle" aria-label="Dark theme" aria-pressed="false">
           <svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
           <svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
         </button>
-      </nav>
+      </div>
     </div>
   </header>
 
   <main id="main">
     <div class="wrap hero" id="top">
-      <img class="avatar rise" src="assets/avatar-168.webp" srcset="assets/avatar-168.webp 1x, assets/avatar-336.webp 2x" width="72" height="72" alt="Portrait of Ceyhun Akar">
-      <h1 class="rise d1">Ceyhun Akar</h1>
-      <p class="lede rise d2">Data engineer. I build the secure, <span class="nb">multi-tenant</span> analytics layer and the pipelines that feed it.</p>
-      <ul class="facts rise d3">
-        <li><span class="label">Working at</span> <span class="chip plain">Mediastream AG</span> on <span class="chip plain">ComplyGuard</span> (compliance analytics for regulated iGaming)</li>
-        <li><span class="label">Main stack</span>
-          <span class="chip"><span class="ic i-clickhouse" aria-hidden="true"></span>ClickHouse</span>
-          <span class="chip"><span class="ic i-fastapi" aria-hidden="true"></span>FastAPI</span>
-          <span class="chip"><span class="ic i-airflow" aria-hidden="true"></span>Airflow</span>
-          <span class="chip"><span class="ic i-kubernetes" aria-hidden="true"></span>Kubernetes</span>
-          <span class="chip"><span class="ic i-kafka" aria-hidden="true"></span>Kafka</span>
-          <span class="chip"><span class="ic i-flink" aria-hidden="true"></span>Flink</span>
-        </li>
-        <li><span class="label">Studying</span> <span class="chip plain">Executive MBA</span> at Istanbul Technical University</li>
-      </ul>
-      <p class="intro rise d4">I collect data, process it, and carry it to the point where a decision gets made. Most of my recent work makes the safe path the default: the API adds the tenant filter for you, nobody approves their own rule, and nobody can edit the history.</p>
-      <div class="actions rise d4">
-        <a class="btn primary" href="Ceyhun_Akar_CV.pdf">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12m0 0-5-5m5 5 5-5M4 21h16"/></svg>
-          Download CV
-        </a>
-        <a class="btn" href="https://github.com/akarce">GitHub</a>
-        <a class="btn" href="https://www.linkedin.com/in/akarce/">LinkedIn</a>
-        <a class="btn" href="mailto:akarceyh@gmail.com">Email</a>
+      <div class="hero-main">
+        <div class="hero-id rise">
+          <img class="avatar" src="assets/avatar-168.webp" srcset="assets/avatar-168.webp 1x, assets/avatar-336.webp 2x" width="72" height="72" alt="Portrait of Ceyhun Akar">
+          <h1>Ceyhun Akar</h1>
+        </div>
+        <p class="lede rise d2">Data engineer. I build the secure, <span class="nb">multi-tenant</span> analytics layer and the pipelines that feed it.</p>
+        <p class="intro rise d3">I collect data, process it, and carry it to the point where a decision gets made. Most of my recent work makes the safe path the default: the API adds the tenant filter for you, nobody approves their own rule, and nobody can edit the history.</p>
+        <div class="actions rise d4">
+          <a class="btn primary" href="Ceyhun_Akar_CV.pdf">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12m0 0-5-5m5 5 5-5M4 21h16"/></svg>
+            Download CV
+          </a>
+          <a class="btn" href="https://github.com/akarce">GitHub</a>
+          <a class="btn" href="https://www.linkedin.com/in/akarce/">LinkedIn</a>
+          <a class="btn" href="mailto:akarceyh@gmail.com">Email</a>
+        </div>
       </div>
-      <ul class="record rise d5">
-        <li><span class="k">role=</span><span class="v">data engineer</span></li>
-        <li><span class="k">since=</span><span class="v">2024-12</span></li>
-        <li><span class="k">team=</span><span class="v">~8 engineers and analysts</span></li>
-        <li><span class="k">tz=</span><span class="v">Istanbul, UTC+3</span></li>
-        <li><span class="k">updated=</span><span class="v">2026-09</span></li>
-      </ul>
+      <aside class="hero-panel rise d4" aria-label="At a glance">
+        <ul class="facts">
+          <li><span class="label">Working at</span> <span class="chip plain">Mediastream AG</span> on <span class="chip plain">ComplyGuard</span> (compliance analytics for regulated iGaming)</li>
+          <li><span class="label">Main stack</span>
+            <span class="chip"><span class="ic i-clickhouse" aria-hidden="true"></span>ClickHouse</span>
+            <span class="chip"><span class="ic i-fastapi" aria-hidden="true"></span>FastAPI</span>
+            <span class="chip"><span class="ic i-airflow" aria-hidden="true"></span>Airflow</span>
+            <span class="chip"><span class="ic i-kubernetes" aria-hidden="true"></span>Kubernetes</span>
+            <span class="chip"><span class="ic i-kafka" aria-hidden="true"></span>Kafka</span>
+            <span class="chip"><span class="ic i-flink" aria-hidden="true"></span>Flink</span>
+          </li>
+          <li><span class="label">Studying</span> <span class="chip plain">Executive MBA</span> at Istanbul Technical University</li>
+        </ul>
+        <ul class="record">
+          <li><span class="k">role=</span><span class="v">data engineer</span></li>
+          <li><span class="k">since=</span><span class="v">2024-12</span></li>
+          <li><span class="k">team=</span><span class="v">~8 engineers and analysts</span></li>
+          <li><span class="k">tz=</span><span class="v">Istanbul, UTC+3</span></li>
+          <li><span class="k">updated=</span><span class="v">2026-09</span></li>
+        </ul>
+      </aside>
     </div>
 
     <section id="work" aria-labelledby="work-h">
@@ -149,48 +157,50 @@
         </div>
 
         <article class="entry">
-          <div class="when">Dec 2024 - now<span>Contract, remote</span></div>
-          <div>
-            <h3 class="entry-title">Data Engineer <span class="org">at Mediastream AG</span></h3>
+          <header class="entry-head">
+            <div>
+              <div class="when">Dec 2024 - now<span>Contract, remote</span></div>
+              <h3 class="entry-title">Data Engineer <span class="org">at Mediastream AG</span></h3>
+            </div>
             <p class="lead">I've been on ComplyGuard since its early months, in a team of about eight engineers and analysts. I started with a trial project through Upwork. Day to day I review and merge teammates' pull requests, and I've run sprint planning and stand-ups when our lead was away.</p>
-            <ul class="work-list">
-              <li>
-                <h4>Two-layer tenant isolation on ClickHouse</h4>
-                <p>A FastAPI query guard adds tenant filters from SSO group memberships. Row-level security policies, generated at deploy time, enforce the same scope inside ClickHouse, so a query that misses its tenant filter still can't return another tenant's rows. Fact tables without a tenant key are denied by default, and a 57-test isolation suite covers both layers.</p>
-                <ul class="tags"><li>ClickHouse</li><li>FastAPI</li><li>Authelia</li><li>LLDAP</li><li>pytest</li></ul>
-              </li>
-              <li>
-                <h4>Analytics API and a no-code dashboard builder</h4>
-                <p>I built most of the analytics backend (now 100+ REST endpoints over 35 tables) and its first Svelte 5 front end. An earlier version of the customer-facing app, with the query guard and dashboard routes, runs in production. In the current version a decorator or a stored definition generates each dashboard's route, permission checks, tenant scoping and response model, and analysts build charts with live preview behind a SQL guard that rejects JOIN, UNION and CTE queries and requires the tenant filter.</p>
-                <ul class="tags"><li>FastAPI</li><li>Pydantic</li><li>SQLAlchemy</li><li>Redis</li><li>Svelte 5</li><li>ECharts</li></ul>
-              </li>
-              <li>
-                <h4>Pipelines on Kubernetes</h4>
-                <p>I deployed Airflow on Kubernetes for two data platforms. On a DNS-based web-filtering platform I split the URL-classification pipeline into independently scheduled scrape, translate and predict stages, so one failing stage no longer stops the others. I also built incremental Cassandra-to-ClickHouse paths (4 Kafka Connect connectors and a nightly PySpark job with high-watermarks), automated Feast feature refresh and NVIDIA Triton model deployment, and moved the MLflow tracking server onto Kubernetes.</p>
-                <ul class="tags"><li>Airflow</li><li>KubernetesPodOperator</li><li>PySpark</li><li>Kafka Connect</li><li>Helm</li><li>MLflow</li></ul>
-              </li>
-              <li>
-                <h4>Streaming KPIs from model scores</h4>
-                <p>I built a streaming path from model scores to KPIs: Kafka Connect on Strimzi pulled AML and responsible-gambling predictions from Cassandra into Kafka, and a PyFlink job split them into 1-minute windowed KPIs and per-transaction score records in ClickHouse. A second PyFlink job rolled DNS hits up into daily per-domain KPIs. Both jobs were retired in 2026.</p>
-                <ul class="tags"><li>Kafka</li><li>Kafka Connect</li><li>PyFlink</li><li>Cassandra</li><li>ClickHouse</li></ul>
-              </li>
-              <li>
-                <h4>SSO, access control and audit</h4>
-                <p>I set up Authelia with TOTP 2FA and LLDAP in front of the analytics app and Superset, with 9 data-driven role groups and GDPR-oriented audit logging. After a security review I changed the API to verify the session itself instead of trusting forwarded identity headers. I also found and closed a gap where a role limited to one dashboard area could fetch another area's data by URL.</p>
-                <ul class="tags"><li>Authelia</li><li>LLDAP</li><li>Superset</li><li>PostgreSQL</li></ul>
-              </li>
-              <li>
-                <h4>Compliance workflows</h4>
-                <p>With the team I built the rule-authoring side of a responsible-gambling rules engine (versioned rules, four-eyes approval, optimistic concurrency) and license, obligation and case management. State changes go through allow-listed state machines, and the audit history is written in the same transaction as the change.</p>
-                <ul class="tags"><li>FastAPI</li><li>SQLAlchemy</li><li>PostgreSQL</li><li>React</li><li>TanStack</li></ul>
-              </li>
-              <li>
-                <h4>Moves and reliability</h4>
-                <p>I planned and verified the move of the production BI and Airflow stack to a new Kubernetes cluster: dashboards, hundreds of charts and about 20,000 historical DAG runs came across intact. Earlier I moved the analytics stack from Docker Compose to Kubernetes, set resource limits across 7 service deployments after OOM kills, and wrote a post-incident analysis of an intermittent cluster tunnel failure.</p>
-                <ul class="tags"><li>Kubernetes</li><li>Rancher</li><li>Superset</li><li>Airflow</li></ul>
-              </li>
-            </ul>
-          </div>
+          </header>
+          <ul class="work-grid">
+            <li>
+              <h4>Two-layer tenant isolation on ClickHouse</h4>
+              <p>A FastAPI query guard adds tenant filters from SSO group memberships. Row-level security policies, generated at deploy time, enforce the same scope inside ClickHouse, so a query that misses its tenant filter still can't return another tenant's rows. Fact tables without a tenant key are denied by default, and a 57-test isolation suite covers both layers.</p>
+              <ul class="tags"><li>ClickHouse</li><li>FastAPI</li><li>Authelia</li><li>LLDAP</li><li>pytest</li></ul>
+            </li>
+            <li>
+              <h4>Analytics API and a no-code dashboard builder</h4>
+              <p>I built most of the analytics backend (now 100+ REST endpoints over 35 tables) and its first Svelte 5 front end. An earlier version of the customer-facing app, with the query guard and dashboard routes, runs in production. In the current version a decorator or a stored definition generates each dashboard's route, permission checks, tenant scoping and response model, and analysts build charts with live preview behind a SQL guard that rejects JOIN, UNION and CTE queries and requires the tenant filter.</p>
+              <ul class="tags"><li>FastAPI</li><li>Pydantic</li><li>SQLAlchemy</li><li>Redis</li><li>Svelte 5</li><li>ECharts</li></ul>
+            </li>
+            <li>
+              <h4>Pipelines on Kubernetes</h4>
+              <p>I deployed Airflow on Kubernetes for two data platforms. On a DNS-based web-filtering platform I split the URL-classification pipeline into independently scheduled scrape, translate and predict stages, so one failing stage no longer stops the others. I also built incremental Cassandra-to-ClickHouse paths (4 Kafka Connect connectors and a nightly PySpark job with high-watermarks), automated Feast feature refresh and NVIDIA Triton model deployment, and moved the MLflow tracking server onto Kubernetes.</p>
+              <ul class="tags"><li>Airflow</li><li>KubernetesPodOperator</li><li>PySpark</li><li>Kafka Connect</li><li>Helm</li><li>MLflow</li></ul>
+            </li>
+            <li>
+              <h4>Streaming KPIs from model scores</h4>
+              <p>I built a streaming path from model scores to KPIs: Kafka Connect on Strimzi pulled AML and responsible-gambling predictions from Cassandra into Kafka, and a PyFlink job split them into 1-minute windowed KPIs and per-transaction score records in ClickHouse. A second PyFlink job rolled DNS hits up into daily per-domain KPIs. Both jobs were retired in 2026.</p>
+              <ul class="tags"><li>Kafka</li><li>Kafka Connect</li><li>PyFlink</li><li>Cassandra</li><li>ClickHouse</li></ul>
+            </li>
+            <li>
+              <h4>SSO, access control and audit</h4>
+              <p>I set up Authelia with TOTP 2FA and LLDAP in front of the analytics app and Superset, with 9 data-driven role groups and GDPR-oriented audit logging. After a security review I changed the API to verify the session itself instead of trusting forwarded identity headers. I also found and closed a gap where a role limited to one dashboard area could fetch another area's data by URL.</p>
+              <ul class="tags"><li>Authelia</li><li>LLDAP</li><li>Superset</li><li>PostgreSQL</li></ul>
+            </li>
+            <li>
+              <h4>Compliance workflows</h4>
+              <p>With the team I built the rule-authoring side of a responsible-gambling rules engine (versioned rules, four-eyes approval, optimistic concurrency) and license, obligation and case management. State changes go through allow-listed state machines, and the audit history is written in the same transaction as the change.</p>
+              <ul class="tags"><li>FastAPI</li><li>SQLAlchemy</li><li>PostgreSQL</li><li>React</li><li>TanStack</li></ul>
+            </li>
+            <li class="wide">
+              <h4>Moves and reliability</h4>
+              <p>I planned and verified the move of the production BI and Airflow stack to a new Kubernetes cluster: dashboards, hundreds of charts and about 20,000 historical DAG runs came across intact. Earlier I moved the analytics stack from Docker Compose to Kubernetes, set resource limits across 7 service deployments after OOM kills, and wrote a post-incident analysis of an intermittent cluster tunnel failure.</p>
+              <ul class="tags"><li>Kubernetes</li><li>Rancher</li><li>Superset</li><li>Airflow</li></ul>
+            </li>
+          </ul>
         </article>
       </div>
     </section>
@@ -343,35 +353,70 @@
     <section id="projects" aria-labelledby="projects-h">
       <div class="wrap">
         <div class="section-head">
-          <h2 id="projects-h">Open-source projects</h2>
-          <span class="meta">2024, learning projects</span>
+          <h2 id="projects-h">Projects</h2>
+          <span class="meta">2024, code with its video and write-up</span>
         </div>
-        <ul class="projects">
-          <li>
-            <p class="kind-line">pipeline · video</p>
-            <h3><a href="https://github.com/akarce/real-time-data-pipeline-kafka-mongo-elasticsearch-pyspark">Real-time review sentiment pipeline</a></h3>
-            <p>Reviews stream through Kafka into Spark, get a DistilBERT sentiment label, land in MongoDB and Elasticsearch, and show up in Kibana. The 82-minute build video is the most watched thing I've published.</p>
-            <div class="links"><a href="https://github.com/akarce/real-time-data-pipeline-kafka-mongo-elasticsearch-pyspark">Code</a><a href="https://www.youtube.com/watch?v=RQ7nnobb1N0">Video</a></div>
-          </li>
-          <li>
+        <!-- PROJECTS:START -->
+        <div class="showcase">
+          <article class="card video-card" id="p-realtime">
+            <div class="player">
+              <a class="yt" href="https://www.youtube.com/watch?v=RQ7nnobb1N0" data-yt="RQ7nnobb1N0" data-title="Building a Real-Time Data Streaming Pipeline | End to End Project with Kafka Spark and Elasticsearch">
+                <img src="assets/yt/RQ7nnobb1N0.webp" width="1280" height="720" loading="lazy" decoding="async" alt="">
+                <span class="play" aria-hidden="true"></span>
+                <span class="badge" aria-hidden="true">8K+ views · Oct 2024</span>
+                <span class="vh">Play video: Building a Real-Time Data Streaming Pipeline | End to End Project with Kafka Spark and Elasticsearch</span>
+              </a>
+            </div>
+            <div class="card-body">
+              <p class="kind-line">pipeline · <span class="stars">3</span> stars</p>
+              <h3><a href="https://github.com/akarce/real-time-data-pipeline-kafka-mongo-elasticsearch-pyspark">Real-time review sentiment pipeline</a></h3>
+              <p>Reviews stream through Kafka into Spark, get a DistilBERT sentiment label, land in MongoDB and Elasticsearch, and show up in Kibana. The 82-minute build video is the most watched thing I've published.</p>
+              <ul class="tags"><li><span class="ic i-kafka" aria-hidden="true"></span>Kafka</li><li><span class="ic i-spark" aria-hidden="true"></span>Spark</li><li><span class="ic i-huggingface" aria-hidden="true"></span>DistilBERT</li><li><span class="ic i-mongodb" aria-hidden="true"></span>MongoDB</li><li><span class="ic i-elasticsearch" aria-hidden="true"></span>Elasticsearch</li><li><span class="ic i-kibana" aria-hidden="true"></span>Kibana</li></ul>
+              <p class="links"><a href="https://github.com/akarce/real-time-data-pipeline-kafka-mongo-elasticsearch-pyspark">Code</a><a href="https://www.youtube.com/watch?v=RQ7nnobb1N0">YouTube</a></p>
+            </div>
+          </article>
+          <article class="card video-card" id="p-elk">
+            <div class="player">
+              <a class="yt" href="https://www.youtube.com/watch?v=U1i5sIZzEQM" data-yt="U1i5sIZzEQM" data-title="ELK Stack Mastery: Building a Scalable Log Management System">
+                <img src="assets/yt/U1i5sIZzEQM.webp" width="1280" height="720" loading="lazy" decoding="async" alt="">
+                <span class="play" aria-hidden="true"></span>
+                <span class="badge" aria-hidden="true">500+ views · Nov 2024</span>
+                <span class="vh">Play video: ELK Stack Mastery: Building a Scalable Log Management System</span>
+              </a>
+            </div>
+            <div class="card-body">
+              <p class="kind-line">infrastructure · <span class="stars">10</span> stars</p>
+              <h3><a href="https://github.com/akarce/elk-stack-mastery">ELK log management with lifecycle tiers</a></h3>
+              <p>A multi-node Elasticsearch, Logstash and Kibana setup with hot, cold and frozen index lifecycle tiers, documented step by step.</p>
+              <ul class="tags"><li><span class="ic i-elasticsearch" aria-hidden="true"></span>Elasticsearch</li><li><span class="ic i-logstash" aria-hidden="true"></span>Logstash</li><li><span class="ic i-kibana" aria-hidden="true"></span>Kibana</li><li><span class="ic i-docker" aria-hidden="true"></span>Docker</li></ul>
+              <p class="links"><a href="https://github.com/akarce/elk-stack-mastery">Code</a><a href="https://www.youtube.com/watch?v=U1i5sIZzEQM">YouTube</a><a href="https://medium.com/towards-data-engineering/elk-stack-mastery-building-a-scalable-log-management-system-7adc64313336">Article</a></p>
+            </div>
+          </article>
+        </div>
+        <div class="projects">
+          <article class="card" id="p-structured-streaming">
             <p class="kind-line">pipeline · <span class="stars">23</span> stars</p>
-            <h3><a href="https://github.com/akarce/e2e-structured-streaming">e2e-structured-streaming</a></h3>
+            <h3><a href="https://github.com/akarce/e2e-structured-streaming">Streaming API records into Cassandra</a></h3>
             <p>Airflow pulls user records from an API into Kafka, and Spark Structured Streaming processes them into Cassandra. Everything runs in Docker Compose.</p>
-            <div class="links"><a href="https://github.com/akarce/e2e-structured-streaming">Code</a><a href="https://medium.com/towards-data-engineering/end-to-end-realtime-streaming-data-engineering-project-using-python-docker-airflow-spark-kafka-ab1568c2ad13">Article</a></div>
-          </li>
-          <li>
-            <p class="kind-line">infrastructure · <span class="stars">10</span> stars</p>
-            <h3><a href="https://github.com/akarce/elk-stack-mastery">elk-stack-mastery</a></h3>
-            <p>A multi-node Elasticsearch, Logstash and Kibana setup with hot, cold and frozen index lifecycle tiers, documented step by step.</p>
-            <div class="links"><a href="https://github.com/akarce/elk-stack-mastery">Code</a><a href="https://www.youtube.com/watch?v=U1i5sIZzEQM">Video</a><a href="https://medium.com/towards-data-engineering/elk-stack-mastery-building-a-scalable-log-management-system-7adc64313336">Article</a></div>
-          </li>
-          <li>
+            <ul class="tags"><li><span class="ic i-airflow" aria-hidden="true"></span>Airflow</li><li><span class="ic i-kafka" aria-hidden="true"></span>Kafka</li><li><span class="ic i-spark" aria-hidden="true"></span>Spark</li><li><span class="ic i-cassandra" aria-hidden="true"></span>Cassandra</li><li><span class="ic i-docker" aria-hidden="true"></span>Docker</li></ul>
+            <p class="links"><a href="https://github.com/akarce/e2e-structured-streaming">Code</a><a href="https://medium.com/towards-data-engineering/end-to-end-realtime-streaming-data-engineering-project-using-python-docker-airflow-spark-kafka-ab1568c2ad13">Article</a></p>
+          </article>
+          <article class="card" id="p-reddit">
             <p class="kind-line">pipeline · <span class="stars">5</span> stars</p>
-            <h3><a href="https://github.com/akarce/RedditDataPipeline">RedditDataPipeline</a></h3>
+            <h3><a href="https://github.com/akarce/RedditDataPipeline">Reddit data platform</a></h3>
             <p>Reddit API data moves through NiFi and Airflow into MinIO and Hive, is queried with Trino, and ends up in Superset and Tableau dashboards.</p>
-            <div class="links"><a href="https://github.com/akarce/RedditDataPipeline">Code</a><a href="https://towardsdev.com/data-engineering-with-reddit-api-airflow-hive-postgres-minio-nifi-trino-tableau-and-superset-6a35bff30fd0">Article</a></div>
-          </li>
-        </ul>
+            <ul class="tags"><li><span class="ic i-nifi" aria-hidden="true"></span>NiFi</li><li><span class="ic i-airflow" aria-hidden="true"></span>Airflow</li><li><span class="ic i-minio" aria-hidden="true"></span>MinIO</li><li><span class="ic i-hive" aria-hidden="true"></span>Hive</li><li><span class="ic i-trino" aria-hidden="true"></span>Trino</li><li><span class="ic i-superset" aria-hidden="true"></span>Superset</li></ul>
+            <p class="links"><a href="https://github.com/akarce/RedditDataPipeline">Code</a><a href="https://towardsdev.com/data-engineering-with-reddit-api-airflow-hive-postgres-minio-nifi-trino-tableau-and-superset-6a35bff30fd0">Part 1</a><a href="https://towardsdev.com/data-engineering-with-reddit-api-airflow-hive-postgres-minio-nifi-trino-tableau-and-superset-c5dd71483151">Part 2</a></p>
+          </article>
+          <article class="card" id="p-otp">
+            <p class="kind-line">pipeline · <span class="stars">2</span> stars</p>
+            <h3><a href="https://github.com/akarce/e2e-otp-pipeline">One-time code delivery pipeline</a></h3>
+            <p>Airflow writes email addresses to a three-broker Kafka cluster, loads them into Cassandra and MongoDB, checks the email and one-time code in both, and sends the code by email, Slack and Discord.</p>
+            <ul class="tags"><li><span class="ic i-airflow" aria-hidden="true"></span>Airflow</li><li><span class="ic i-kafka" aria-hidden="true"></span>Kafka</li><li><span class="ic i-cassandra" aria-hidden="true"></span>Cassandra</li><li><span class="ic i-mongodb" aria-hidden="true"></span>MongoDB</li><li><span class="ic i-docker" aria-hidden="true"></span>Docker</li></ul>
+            <p class="links"><a href="https://github.com/akarce/e2e-otp-pipeline">Code</a><a href="https://towardsdev.com/end-to-end-data-engineering-project-airflow-kafka-cassandra-mongodb-docker-emailoperator-07d48d27bee2">Article</a></p>
+          </article>
+        </div>
+        <!-- PROJECTS:END -->
         <p class="note">I built these in 2024 to learn the tools end to end. My work at Mediastream lives in private repositories, and the Work section above describes it.</p>
       </div>
     </section>
@@ -379,37 +424,23 @@
     <section id="writing" aria-labelledby="writing-h">
       <div class="wrap">
         <div class="section-head">
-          <h2 id="writing-h">Writing and video</h2>
-          <span class="meta">Medium, YouTube</span>
+          <h2 id="writing-h">Writing</h2>
+          <span class="meta">Medium, Towards Dev</span>
         </div>
-        <a class="feature" href="https://www.youtube.com/watch?v=RQ7nnobb1N0">
-          <img src="assets/thumb-rq7-640.webp" srcset="assets/thumb-rq7-640.webp 640w, assets/thumb-rq7-960.webp 960w" sizes="(max-width: 760px) calc(100vw - 32px), 240px" width="640" height="360" loading="lazy" decoding="async" alt="">
-          <div class="body">
-            <div class="eyebrow">Most watched</div>
-            <h3>Building a real-time data streaming pipeline with Kafka, Spark and Elasticsearch</h3>
-            <div class="meta">82-minute build, 8,000+ views on YouTube</div>
-          </div>
-        </a>
-        <h3 class="feed-label">Articles</h3>
+        <!-- ARTICLES:START -->
         <ul class="feed">
-<!-- MEDIUM-POSTS:START --><li><span class="date">Oct 2024</span><span class="kind">article</span><a href="https://medium.com/towards-data-engineering/elk-stack-mastery-building-a-scalable-log-management-system-7adc64313336">ELK Stack Mastery: Building a Scalable Log Management System</a></li>
-<li><span class="date">Sep 2024</span><span class="kind">article</span><a href="https://towardsdev.com/data-engineering-with-reddit-api-airflow-hive-postgres-minio-nifi-trino-tableau-and-superset-6a35bff30fd0">Data Engineering with Reddit API, Airflow, Hive, NiFi, Trino and Superset &lpar;Part 1&rpar;</a></li>
-<li><span class="date">Sep 2024</span><span class="kind">article</span><a href="https://towardsdev.com/data-engineering-with-reddit-api-airflow-hive-postgres-minio-nifi-trino-tableau-and-superset-c5dd71483151">Data Engineering with Reddit API, Airflow, Hive, NiFi, Trino and Superset &lpar;Part 2&rpar;</a></li>
-<li><span class="date">Aug 2024</span><span class="kind">article</span><a href="https://towardsdev.com/end-to-end-data-engineering-project-airflow-kafka-cassandra-mongodb-docker-emailoperator-07d48d27bee2">End to End Data Engineering Project: Airflow, Kafka, Cassandra, MongoDB, Docker, EmailOperator…</a></li>
-<li><span class="date">Jul 2024</span><span class="kind">article</span><a href="https://medium.com/towards-data-engineering/end-to-end-realtime-streaming-data-engineering-project-using-python-docker-airflow-spark-kafka-ab1568c2ad13">End-to-End Realtime Streaming Data Engineering Project using Python, Docker, Airflow, Spark, Kafka…</a></li>
-<!-- MEDIUM-POSTS:END -->
+          <li><span class="date">Oct 2024</span><a href="https://medium.com/towards-data-engineering/elk-stack-mastery-building-a-scalable-log-management-system-7adc64313336">ELK Stack Mastery: Building a Scalable Log Management System</a><a class="proj" href="#p-elk">elk-stack-mastery</a></li>
+          <li><span class="date">Sep 2024</span><a href="https://towardsdev.com/data-engineering-with-reddit-api-airflow-hive-postgres-minio-nifi-trino-tableau-and-superset-6a35bff30fd0">Data Engineering with Reddit API, Airflow, Hive, NiFi, Trino and Superset (Part 1)</a><a class="proj" href="#p-reddit">RedditDataPipeline</a></li>
+          <li><span class="date">Sep 2024</span><a href="https://towardsdev.com/data-engineering-with-reddit-api-airflow-hive-postgres-minio-nifi-trino-tableau-and-superset-c5dd71483151">Data Engineering with Reddit API, Airflow, Hive, NiFi, Trino and Superset (Part 2)</a><a class="proj" href="#p-reddit">RedditDataPipeline</a></li>
+          <li><span class="date">Aug 2024</span><a href="https://towardsdev.com/end-to-end-data-engineering-project-airflow-kafka-cassandra-mongodb-docker-emailoperator-07d48d27bee2">End to End Data Engineering OTP Pipeline Project: Airflow, Kafka, Cassandra, MongoDB, Docker, EmailOperator, SlackWebhookOperator, DiscordWebhookOperator</a><a class="proj" href="#p-otp">e2e-otp-pipeline</a></li>
+          <li><span class="date">Jul 2024</span><a href="https://medium.com/towards-data-engineering/end-to-end-realtime-streaming-data-engineering-project-using-python-docker-airflow-spark-kafka-ab1568c2ad13">End-to-End Realtime Streaming Data Engineering Project using Python, Docker, Airflow, Spark, Kafka, Cassandra</a><a class="proj" href="#p-structured-streaming">e2e-structured-streaming</a></li>
         </ul>
-        <h3 class="feed-label">Videos</h3>
-        <ul class="feed">
-<!-- YOUTUBE-VIDEOS:START --><li><span class="date">Nov 2024</span><span class="kind">video</span><a href="https://www.youtube.com/watch?v=U1i5sIZzEQM">ELK Stack Mastery: Building a Scalable Log Management System</a></li>
-<li><span class="date">Oct 2024</span><span class="kind">video</span><a href="https://www.youtube.com/watch?v=RQ7nnobb1N0">Building a Real-Time Data Streaming Pipeline | End to End Project with Kafka Spark and Elasticsearch</a></li>
-<!-- YOUTUBE-VIDEOS:END -->
-        </ul>
+        <!-- ARTICLES:END -->
       </div>
     </section>
 
-    <section id="education" aria-labelledby="edu-h">
-      <div class="wrap">
+    <div class="wrap duo">
+      <section id="education" aria-labelledby="edu-h">
         <div class="section-head">
           <h2 id="edu-h">Education</h2>
         </div>
@@ -418,11 +449,9 @@
           <li><span><strong>B.Sc. Metallurgical and Materials Engineering</strong>, Istanbul Technical University</span></li>
           <li><span>Udacity Data Engineering Nanodegree, IBM Data Engineering Specialization, Apache Kafka and Elasticsearch (BTK Academy)</span><span class="when">2023 - 2024</span></li>
         </ul>
-      </div>
-    </section>
+      </section>
 
-    <section id="contact" aria-labelledby="contact-h">
-      <div class="wrap">
+      <section id="contact" aria-labelledby="contact-h">
         <div class="section-head">
           <h2 id="contact-h">Contact</h2>
         </div>
@@ -443,13 +472,13 @@
             <li><a href="https://www.upwork.com/freelancers/~01121fd701a2e883f4"><span>Upwork</span><span class="handle">freelance</span></a></li>
           </ul>
         </div>
-      </div>
-    </section>
+      </section>
+    </div>
   </main>
 
   <footer class="site-footer">
     <div class="wrap">
-      <p>Set in Archivo and IBM Plex. Hand-written HTML and CSS: no framework, no analytics, no cookies, no third-party requests. Logos from Devicon, Simple Icons and the projects themselves.</p>
+      <p>Set in Archivo and IBM Plex. Hand-written HTML and CSS: no framework, no analytics, and no cookies or third-party requests until you play a video. Logos from Devicon, Simple Icons and the projects themselves.</p>
       <p><a href="https://github.com/akarce/akarce.github.io">Source on GitHub</a> · Updated September 2026 · Ceyhun Akar, Istanbul</p>
     </div>
   </footer>

@@ -18,10 +18,13 @@ Built with (projects): Hugging Face Transformers, PyTorch, Amazon Bedrock, Elast
 
 ## Public projects (2024)
 
-- [Real-time review sentiment pipeline](https://github.com/akarce/real-time-data-pipeline-kafka-mongo-elasticsearch-pyspark): Kafka, Spark, MongoDB, Elasticsearch; with an 82-minute YouTube build.
-- [e2e-structured-streaming](https://github.com/akarce/e2e-structured-streaming): Airflow, Kafka, Spark Structured Streaming, Cassandra.
-- [elk-stack-mastery](https://github.com/akarce/elk-stack-mastery): multi-node Elasticsearch, Logstash and Kibana with index lifecycle tiers.
-- [RedditDataPipeline](https://github.com/akarce/RedditDataPipeline): NiFi, Airflow, MinIO, Hive, Trino, Superset.
+- [Real-time review sentiment pipeline](https://github.com/akarce/real-time-data-pipeline-kafka-mongo-elasticsearch-pyspark): Kafka, Spark, DistilBERT, MongoDB, Elasticsearch, Kibana. Video: https://www.youtube.com/watch?v=RQ7nnobb1N0
+- [ELK log management with lifecycle tiers](https://github.com/akarce/elk-stack-mastery): multi-node Elasticsearch, Logstash and Kibana with hot, cold and frozen tiers. Video: https://www.youtube.com/watch?v=U1i5sIZzEQM
+- [Streaming API records into Cassandra](https://github.com/akarce/e2e-structured-streaming): Airflow, Kafka, Spark Structured Streaming, Cassandra.
+- [Reddit data platform](https://github.com/akarce/RedditDataPipeline): NiFi, Airflow, MinIO, Hive, Trino, Superset.
+- [One-time code delivery pipeline](https://github.com/akarce/e2e-otp-pipeline): Airflow, Kafka, Cassandra, MongoDB; delivery by email, Slack and Discord.
+
+Each project has its write-up on Medium (https://medium.com/@akarce) and appears on https://akarce.github.io/#projects with its code, article and video.
 
 ## Contact
 
