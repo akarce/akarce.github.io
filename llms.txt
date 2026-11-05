@@ -1,15 +1,20 @@
 # Ceyhun Akar
 
-> Data engineer in Istanbul (UTC+3). I build the secure, multi-tenant analytics layer and the pipelines that feed it. Contract data engineer at Mediastream AG on ComplyGuard, a compliance analytics platform for regulated iGaming, since December 2024. Executive MBA student at Istanbul Technical University.
+> Data engineer in Istanbul (UTC+3). I build the secure, multi-tenant analytics layer and the pipelines that feed it. Contract data engineer at Mediastream AG on ComplyGuard, a compliance analytics platform for regulated iGaming, since December 2024. Executive MBA student at Istanbul Technical University (B.Sc. Metallurgical and Materials Engineering, 2020).
 
 ## Work (Mediastream AG, ComplyGuard)
 
 - Two-layer tenant isolation on ClickHouse: a FastAPI query guard plus deploy-time row-level security policies, covered by a 57-test isolation suite.
-- Most of the analytics backend (now 100+ REST endpoints over 35 tables) and its first Svelte 5 front end; an earlier version of the customer-facing app runs in production. A no-code dashboard builder behind a SQL guard.
+- Most of the analytics backend (now 100+ REST endpoints over 35 tables) and its first Svelte 5 front end, in production on private, VPN-only deployments. A no-code dashboard builder behind a SQL guard.
 - Airflow on Kubernetes for two data platforms; a URL-classification pipeline split into scrape, translate and predict stages; incremental Cassandra-to-ClickHouse paths with Kafka Connect and PySpark.
 - A streaming path from model scores to KPIs with Kafka Connect and PyFlink into ClickHouse (retired in 2026).
 - SSO with TOTP 2FA (Authelia, LLDAP), data-driven role-based access and audit logging.
-- Co-built compliance workflows: the rule-authoring side of a rules engine with four-eyes approval, and license, obligation and case management.
+- Most of the compliance workflows, also in production: the rule-authoring side of a rules engine with four-eyes approval, and license, obligation and case management.
+
+## Side venture (since May 2026)
+
+- Lead engineer of an independent multi-tenant event SaaS for the Turkish wedding market, live on the web and the iOS App Store, in a team of four.
+- Next.js 16, TypeScript and PostgreSQL; self-hosted on two k3s clusters (public product, VPN-only tooling with CI, SSO and monitoring); CI/CD that runs 723 test files on every PR and fails closed.
 
 ## Stack
 

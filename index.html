@@ -144,7 +144,7 @@
           <li><span class="k">since=</span><span class="v">2024-12</span></li>
           <li><span class="k">team=</span><span class="v">~8 engineers and analysts</span></li>
           <li><span class="k">tz=</span><span class="v">Istanbul, UTC+3</span></li>
-          <li><span class="k">updated=</span><span class="v">2026-09</span></li>
+          <li><span class="k">updated=</span><span class="v">2026-11</span></li>
         </ul>
       </aside>
     </div>
@@ -172,7 +172,7 @@
             </li>
             <li>
               <h4>Analytics API and a no-code dashboard builder</h4>
-              <p>I built most of the analytics backend (now 100+ REST endpoints over 35 tables) and its first Svelte 5 front end. An earlier version of the customer-facing app, with the query guard and dashboard routes, runs in production. In the current version a decorator or a stored definition generates each dashboard's route, permission checks, tenant scoping and response model, and analysts build charts with live preview behind a SQL guard that rejects JOIN, UNION and CTE queries and requires the tenant filter.</p>
+              <p>I built most of the analytics backend (now 100+ REST endpoints over 35 tables) and its first Svelte 5 front end. The app runs in production on private, VPN-only deployments. A decorator or a stored definition generates each dashboard's route, permission checks, tenant scoping and response model, and analysts build charts with live preview behind a SQL guard that rejects JOIN, UNION and CTE queries and requires the tenant filter.</p>
               <ul class="tags"><li>FastAPI</li><li>Pydantic</li><li>SQLAlchemy</li><li>Redis</li><li>Svelte 5</li><li>ECharts</li></ul>
             </li>
             <li>
@@ -192,13 +192,44 @@
             </li>
             <li>
               <h4>Compliance workflows</h4>
-              <p>With the team I built the rule-authoring side of a responsible-gambling rules engine (versioned rules, four-eyes approval, optimistic concurrency) and license, obligation and case management. State changes go through allow-listed state machines, and the audit history is written in the same transaction as the change.</p>
+              <p>I built most of the rule-authoring side of a responsible-gambling rules engine (versioned rules, four-eyes approval, optimistic concurrency) and of license, obligation and case management, which run in production on private, VPN-only deployments. State changes go through allow-listed state machines, and the audit history is written in the same transaction as the change.</p>
               <ul class="tags"><li>FastAPI</li><li>SQLAlchemy</li><li>PostgreSQL</li><li>React</li><li>TanStack</li></ul>
             </li>
             <li class="wide">
               <h4>Moves and reliability</h4>
               <p>I planned and verified the move of the production BI and Airflow stack to a new Kubernetes cluster: dashboards, hundreds of charts and about 20,000 historical DAG runs came across intact. Earlier I moved the analytics stack from Docker Compose to Kubernetes, set resource limits across 7 service deployments after OOM kills, and wrote a post-incident analysis of an intermittent cluster tunnel failure.</p>
               <ul class="tags"><li>Kubernetes</li><li>Rancher</li><li>Superset</li><li>Airflow</li></ul>
+            </li>
+          </ul>
+        </article>
+
+        <article class="entry">
+          <header class="entry-head">
+            <div>
+              <div class="when">May 2026 - now<span>Side venture</span></div>
+              <h3 class="entry-title">Lead Engineer <span class="org">at an independent SaaS</span></h3>
+            </div>
+            <p class="lead">A multi-tenant event platform for the Turkish wedding market, live on the web and the iOS App Store. We're a team of four, and I lead engineering and run the platform.</p>
+          </header>
+          <ul class="work-grid">
+            <li>
+              <h4>The product</h4>
+              <p>Next.js 16, TypeScript and PostgreSQL with Drizzle (42 tables, 128 versioned migrations), one subdomain per tenant, web checkout, and Apple in-app purchases verified on the server.</p>
+              <ul class="tags"><li>Next.js</li><li>TypeScript</li><li>PostgreSQL</li><li>Drizzle</li></ul>
+            </li>
+            <li>
+              <h4>A self-hosted platform on two k3s clusters</h4>
+              <p>One cluster serves the public product. The other is VPN-only and runs git hosting and CI, SSO with 2FA, and Prometheus, Grafana and Loki with 50+ alert rules. About 30 services are scripted, and the production PostgreSQL is backed up every hour with age encryption and a scripted restore drill.</p>
+              <ul class="tags"><li>k3s</li><li>Prometheus</li><li>Grafana</li><li>Loki</li></ul>
+            </li>
+            <li>
+              <h4>CI/CD that fails closed</h4>
+              <p>Every PR runs 723 test files against real PostgreSQL and Valkey, migrations run as a Kubernetes Job before rollout, and a failed rollout rolls back. A load test showed the object store as the bottleneck and led to an upload admission gate.</p>
+              <ul class="tags"><li>Forgejo Actions</li><li>Kubernetes</li><li>Valkey</li></ul>
+            </li>
+            <li class="wide">
+              <h4>How I work</h4>
+              <p>I run parallel AI coding agents in isolated git worktrees, with written guardrails and an adversarial review pass on their output before it merges.</p>
             </li>
           </ul>
         </article>
@@ -333,7 +364,6 @@
               <span class="chip ghost"><span class="ic i-kafka" aria-hidden="true"></span>Kafka Streams</span>
               <span class="chip ghost">ksqlDB</span>
               <span class="chip ghost">IBM Cognos Analytics</span>
-              <span class="chip ghost"><span class="ic i-couchbase" aria-hidden="true"></span>Couchbase</span>
             </dd>
           </div>
           <div class="stack-row">
@@ -446,7 +476,7 @@
         </div>
         <ul class="edu">
           <li><span><strong>Executive MBA</strong> (non-thesis, evening program), Istanbul Technical University</span><span class="when">2026 - now</span></li>
-          <li><span><strong>B.Sc. Metallurgical and Materials Engineering</strong>, Istanbul Technical University</span></li>
+          <li><span><strong>B.Sc. Metallurgical and Materials Engineering</strong>, Istanbul Technical University</span><span class="when">2020</span></li>
           <li><span>Udacity Data Engineering Nanodegree, IBM Data Engineering Specialization, Apache Kafka and Elasticsearch (BTK Academy)</span><span class="when">2023 - 2024</span></li>
         </ul>
       </section>
@@ -479,7 +509,7 @@
   <footer class="site-footer">
     <div class="wrap">
       <p>Set in Archivo and IBM Plex. Hand-written HTML and CSS: no framework, no analytics, and no cookies or third-party requests until you play a video. Logos from Devicon, Simple Icons and the projects themselves.</p>
-      <p><a href="https://github.com/akarce/akarce.github.io">Source on GitHub</a> · Updated September 2026 · Ceyhun Akar, Istanbul</p>
+      <p><a href="https://github.com/akarce/akarce.github.io">Source on GitHub</a> · Updated November 2026 · Ceyhun Akar, Istanbul</p>
     </div>
   </footer>
 </body>

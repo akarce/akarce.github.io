@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # Renders cv/index.html to a PDF with headless Chrome, then stamps clean PDF metadata.
 #
-#   ./cv/build.sh            -> Ceyhun_Akar_CV.pdf in the repo root (public: no phone, no private sections)
+#   ./cv/build.sh            -> Ceyhun_Akar_CV.pdf in the repo root (public: no phone)
 #   ./cv/build.sh --private  -> ../private-cv/Ceyhun_Akar_CV_private.pdf, outside the repo.
 #                               Fills the <!-- private:NAME --> markers from ../private-cv/NAME.html.
 set -euo pipefail
@@ -30,7 +30,6 @@ def fill(m):
     return part.read_text() if part.exists() else ""
 html = re.sub(r"<!-- private:([a-z]+) -->", fill, html)
 html = html.replace(" (UTC+3)", "")  # keeps the longer contact line on one row
-html = html.replace("</style>", "  /* the private copy carries an extra section */\n  body { line-height: 1.24; font-size: 8.7pt; } li { margin-bottom: 1px; } h2 { margin-top: 6px; }\n</style>", 1)
 html = html.replace("<head>", f'<head>\n<base href="file://{here}/">', 1)
 pathlib.Path(tmp).write_text(html)
 PY

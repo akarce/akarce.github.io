@@ -28,8 +28,8 @@
   body {
     margin: 0;
     font-family: "IBM Plex Sans", "Helvetica Neue", Arial, sans-serif;
-    font-size: 9pt;
-    line-height: 1.3;
+    font-size: 8.7pt;
+    line-height: 1.24;
     color: var(--ink);
     background: #fff;
   }
@@ -43,7 +43,7 @@
   h2 {
     font-size: 9.2pt; font-weight: 700; letter-spacing: 0; text-transform: uppercase;
     color: var(--accent); border-bottom: 0.8pt solid var(--rule);
-    margin: 7px 0 3px; padding-bottom: 1px;
+    margin: 6px 0 3px; padding-bottom: 1px;
   }
   p { margin: 0 0 3px; }
   .summary { margin-top: 1px; }
@@ -54,7 +54,7 @@
   .entry-head .when { font-weight: 500; color: var(--muted); white-space: nowrap; }
   .entry-sub { color: var(--muted); font-style: italic; margin-bottom: 1.5px; }
   ul { margin: 1px 0 0; padding-left: 13px; }
-  li { margin: 0 0 1.6px; padding-left: 1px; }
+  li { margin: 0 0 1px; padding-left: 1px; }
   .compact li { margin-bottom: 1px; }
   .edu p { margin-bottom: 1px; }
   .nb { white-space: nowrap; }
@@ -70,7 +70,7 @@
 </header>
 
 <h2>Summary</h2>
-<p class="summary">Data engineer at Mediastream AG on ComplyGuard, a compliance analytics SaaS for regulated iGaming. My work spans the data path: Kafka Connect and PyFlink streaming, Airflow and Spark jobs on Kubernetes, dbt models on ClickHouse, and the secure multi-tenant layer on top (ClickHouse row-level security, FastAPI, SSO).<!-- private:summary --></p>
+<p class="summary">Data engineer at Mediastream AG on ComplyGuard, a compliance analytics SaaS for regulated iGaming. My work spans the data path: Kafka Connect and PyFlink streaming, Airflow and Spark jobs on Kubernetes, dbt models on ClickHouse, and the secure multi-tenant layer on top (ClickHouse row-level security, FastAPI, SSO). Outside work I built and run a SaaS that is live on the web and the iOS App Store.</p>
 
 <h2>Skills</h2>
 <div class="skills">
@@ -78,7 +78,7 @@
   <p><b>Storage and query:</b> ClickHouse (row-level security), PostgreSQL, Apache Cassandra, Redis, MySQL</p>
   <p><b>Platform and ops:</b> Kubernetes (Rancher/RKE2, k3s), Helm, Docker, AWS (S3, ECR, Translate), Authelia/LLDAP SSO</p>
   <p><b>Backend, BI and ML:</b> Python (pandas, NumPy), SQL, Bash, TypeScript, FastAPI, SQLAlchemy, Pydantic, pytest, Svelte, React, Apache Superset, MLflow</p>
-  <p><b>Also used:</b> Google Cloud, Prometheus, Grafana, Elasticsearch, Logstash, Kibana, MongoDB, Trino, Apache Hive, Apache NiFi, MinIO, Confluent Cloud, Tableau, GitHub Actions, Next.js, Playwright, Hugging Face Transformers, PyTorch, Amazon Bedrock</p>
+  <p><b>Also used:</b> Google Cloud, Prometheus, Grafana, Elasticsearch, Logstash, Kibana, MongoDB, Trino, Apache Hive, Apache NiFi, MinIO, Confluent Cloud, Apache HBase, Tableau, GitHub Actions, Next.js, Playwright, Hugging Face Transformers, PyTorch, Amazon Bedrock</p>
   <p><b>Trained:</b> Databricks, Amazon Redshift, AWS Glue, Amazon Athena, Apache Hadoop, Kafka Streams, ksqlDB, IBM Cognos Analytics</p>
 </div>
 
@@ -88,17 +88,25 @@
   <div class="entry-sub">Remote contractor on ComplyGuard since its early months, in a team of about eight engineers and analysts. I review and merge teammates' pull requests and have run sprint planning when the lead was away.</div>
   <ul>
     <li>Designed and built two-layer tenant isolation on ClickHouse: a FastAPI query guard adds tenant filters from SSO group memberships, and deploy-time row-level security policies enforce the same scope in the database, so a query that misses its tenant filter still can't return another tenant's rows. A dedicated 57-test isolation suite covers both layers.</li>
-    <li>Built most of the analytics backend (FastAPI, SQLAlchemy, Redis, ClickHouse; 100+ REST endpoints over 35 tables) and its first Svelte 5 front end for revenue, tax and AML/KYC dashboards, with a Redis query cache, per-user rate limits and query timeouts. An earlier version of the app runs in production.</li>
+    <li>Built most of the analytics backend (FastAPI, SQLAlchemy, Redis, ClickHouse; 100+ REST endpoints over 35 tables) and its first Svelte 5 front end for revenue, tax and AML/KYC dashboards, with a Redis query cache, per-user rate limits and query timeouts. It runs in production on private, VPN-only deployments.</li>
     <li>Created a declarative dashboard framework and a no-code Dashboard Builder: one decorator or stored definition generates the API route, permission checks, tenant scoping and response model, and a SQL guard rejects JOIN, UNION and CTE queries and requires the tenant filter.</li>
     <li>Built the streaming analytics path for an AML and responsible-gambling scoring service: Kafka Connect on Strimzi streamed model predictions from Cassandra into Kafka, and a PyFlink job wrote 1-minute windowed KPIs and per-transaction score records to ClickHouse (retired in 2026).</li>
     <li>Deployed Airflow on Kubernetes (Helm, KubernetesPodOperator) for two data platforms and split a DNS-based URL-classification pipeline into independently scheduled scrape, translate and predict stages. Built incremental Cassandra-to-ClickHouse paths (4 Kafka Connect connectors, a nightly PySpark ETL with high-watermarks) and a PyFlink job for daily DNS-hit KPIs.</li>
     <li>Implemented SSO with TOTP 2FA (Authelia, LLDAP) and data-driven RBAC (9 role groups) for the analytics app and Superset, with GDPR-oriented audit logging. After a security review, made the API verify sessions itself instead of trusting forwarded identity headers.</li>
-    <li>Co-built compliance workflow modules: the rule-authoring side of a responsible-gambling rules engine (versioned rules, four-eyes approval, optimistic concurrency) and license, obligation and case management, with allow-listed state machines and audit history written in the same transaction.</li>
+    <li>Built most of the compliance workflow modules, now in production: the rule-authoring side of a responsible-gambling rules engine (versioned rules, four-eyes approval, optimistic concurrency) and license, obligation and case management, with allow-listed state machines and audit history written in the same transaction.</li>
     <li>Planned and verified the move of the production BI and Airflow stack to a new Kubernetes cluster, with hundreds of charts and about 20,000 historical DAG runs intact. Earlier moved the BI stack from Docker Compose to Kubernetes, automated Feast feature refresh and NVIDIA Triton model deployment with Airflow, and set resource limits on 7 services after OOM kills.</li>
   </ul>
 </div>
 
-<!-- private:experience -->
+<div class="entry">
+  <div class="entry-head"><span>Independent SaaS (side venture) | Lead Engineer</span><span class="when">May 2026 - Present</span></div>
+  <div class="entry-sub">Multi-tenant event platform for the Turkish wedding market, live on the web and the iOS App Store. Team of four; I lead engineering.</div>
+  <ul>
+    <li>Built the product on Next.js 16, TypeScript and PostgreSQL (Drizzle; 42 tables, 128 versioned migrations) with one subdomain per tenant, web checkout, and Apple in-app purchases verified server-side.</li>
+    <li>Designed and operate a self-hosted platform on two isolated k3s clusters: the public product, and VPN-only tooling with git hosting, CI, SSO with 2FA and Prometheus, Grafana and Loki (50+ alert rules). Scripted about 30 service deploys and hourly encrypted backups of the production PostgreSQL, with a scripted restore drill.</li>
+    <li>Made CI/CD fail closed: every PR runs 723 test files against real PostgreSQL and Valkey, migrations run as a Kubernetes Job before rollout, and failed rollouts roll back. A load test showed object-store memory as the bottleneck, which led to an upload admission gate.</li>
+  </ul>
+</div>
 
 <h2>Projects</h2>
 <ul class="compact">
@@ -109,7 +117,7 @@
 <h2>Education</h2>
 <div class="edu">
   <div class="entry-head"><span>Istanbul Technical University | Executive MBA (non-thesis, evening program)</span><span class="when">2026 - Present</span></div>
-  <p>Istanbul Technical University | B.Sc. Metallurgical and Materials Engineering</p>
+  <div class="entry-head"><span>Istanbul Technical University | B.Sc. Metallurgical and Materials Engineering</span><span class="when">2020</span></div>
   <p><b>Certifications:</b> Udacity Data Engineering Nanodegree, IBM Data Engineering Specialization, Kafka and Elasticsearch (BTK Academy)</p>
   <p><b>Languages:</b> English (C1, IELTS 7.0), Turkish (native)</p>
 </div>
