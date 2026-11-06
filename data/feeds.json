@@ -38,10 +38,10 @@
     }
   ],
   "stars": {
-    "RedditDataPipeline": 5,
+    "RedditDataPipeline": 6,
     "e2e-otp-pipeline": 2,
     "e2e-structured-streaming": 23,
-    "elk-stack-mastery": 10,
+    "elk-stack-mastery": 11,
     "real-time-data-pipeline-kafka-mongo-elasticsearch-pyspark": 3
   },
   "videos": [
@@ -54,7 +54,7 @@
     {
       "date": "2024-10-03T09:32:34+00:00",
       "id": "RQ7nnobb1N0",
-      "title": "Building a Real-Time Data Streaming Pipeline | End to End Project with Kafka Spark and Elasticsearch",
+      "title": "Kafka Project: End-to-End Streaming Pipeline with Spark and Elasticsearch",
       "views": 8000
     }
   ]
