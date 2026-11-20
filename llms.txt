@@ -4,9 +4,9 @@
 
 ## Work (Mediastream AG, ComplyGuard)
 
-- Two-layer tenant isolation on ClickHouse: a FastAPI query guard plus deploy-time row-level security policies, covered by a 57-test isolation suite.
-- Most of the analytics backend (now 100+ REST endpoints over 35 tables) and its first Svelte 5 front end, in production on private, VPN-only deployments. A no-code dashboard builder behind a SQL guard.
-- Airflow on Kubernetes for two data platforms; a URL-classification pipeline split into scrape, translate and predict stages; incremental Cassandra-to-ClickHouse paths with Kafka Connect and PySpark.
+- Tenant isolation on ClickHouse, enforced in both the API and the database with row-level security, covered by automated tests.
+- Most of the analytics backend and its first Svelte 5 front end, in production on private deployments, including a no-code dashboard builder behind a SQL guard.
+- Airflow on Kubernetes for two data platforms; a URL-classification pipeline split into independently scheduled stages; incremental Cassandra-to-ClickHouse loads with Kafka Connect and PySpark.
 - A streaming path from model scores to KPIs with Kafka Connect and PyFlink into ClickHouse (retired in 2026).
 - SSO with TOTP 2FA (Authelia, LLDAP), data-driven role-based access and audit logging.
 - Most of the compliance workflows, also in production: the rule-authoring side of a rules engine with four-eyes approval, and license, obligation and case management.

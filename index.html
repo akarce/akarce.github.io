@@ -166,38 +166,38 @@
           </header>
           <ul class="work-grid">
             <li>
-              <h4>Two-layer tenant isolation on ClickHouse</h4>
-              <p>A FastAPI query guard adds tenant filters from SSO group memberships. Row-level security policies, generated at deploy time, enforce the same scope inside ClickHouse, so a query that misses its tenant filter still can't return another tenant's rows. Fact tables without a tenant key are denied by default, and a 57-test isolation suite covers both layers.</p>
+              <h4>Tenant isolation on ClickHouse</h4>
+              <p>I built tenant isolation that is enforced in both the API and the database with row-level security, so a query that misses its tenant filter still can't return another tenant's rows. An automated test suite covers both layers.</p>
               <ul class="tags"><li>ClickHouse</li><li>FastAPI</li><li>Authelia</li><li>LLDAP</li><li>pytest</li></ul>
             </li>
             <li>
               <h4>Analytics API and a no-code dashboard builder</h4>
-              <p>I built most of the analytics backend (now 100+ REST endpoints over 35 tables) and its first Svelte 5 front end. The app runs in production on private, VPN-only deployments. A decorator or a stored definition generates each dashboard's route, permission checks, tenant scoping and response model, and analysts build charts with live preview behind a SQL guard that rejects JOIN, UNION and CTE queries and requires the tenant filter.</p>
+              <p>I built most of the analytics backend and its first Svelte 5 front end, which run in production on private deployments. They include a no-code dashboard builder with permission checks and tenant scoping built in, where analysts build charts with live preview behind a SQL guard that only lets safe, tenant-scoped queries through.</p>
               <ul class="tags"><li>FastAPI</li><li>Pydantic</li><li>SQLAlchemy</li><li>Redis</li><li>Svelte 5</li><li>ECharts</li></ul>
             </li>
             <li>
               <h4>Pipelines on Kubernetes</h4>
-              <p>I deployed Airflow on Kubernetes for two data platforms. On a DNS-based web-filtering platform I split the URL-classification pipeline into independently scheduled scrape, translate and predict stages, so one failing stage no longer stops the others. I also built incremental Cassandra-to-ClickHouse paths (4 Kafka Connect connectors and a nightly PySpark job with high-watermarks), automated Feast feature refresh and NVIDIA Triton model deployment, and moved the MLflow tracking server onto Kubernetes.</p>
+              <p>I deployed Airflow on Kubernetes for two data platforms and split a URL-classification pipeline into independently scheduled stages, so one failing stage no longer stops the others. I also built incremental Cassandra-to-ClickHouse loads with Kafka Connect and PySpark, automated ML feature refresh and model deployment with Feast and Triton, and moved the MLflow tracking server onto Kubernetes.</p>
               <ul class="tags"><li>Airflow</li><li>KubernetesPodOperator</li><li>PySpark</li><li>Kafka Connect</li><li>Helm</li><li>MLflow</li></ul>
             </li>
             <li>
               <h4>Streaming KPIs from model scores</h4>
-              <p>I built a streaming path from model scores to KPIs: Kafka Connect on Strimzi pulled AML and responsible-gambling predictions from Cassandra into Kafka, and a PyFlink job split them into 1-minute windowed KPIs and per-transaction score records in ClickHouse. A second PyFlink job rolled DNS hits up into daily per-domain KPIs. Both jobs were retired in 2026.</p>
+              <p>I built a streaming path that turned model scores into near-real-time KPIs: Kafka Connect moved the scores from Cassandra into Kafka, and PyFlink jobs aggregated them into ClickHouse. Both jobs were retired in 2026.</p>
               <ul class="tags"><li>Kafka</li><li>Kafka Connect</li><li>PyFlink</li><li>Cassandra</li><li>ClickHouse</li></ul>
             </li>
             <li>
               <h4>SSO, access control and audit</h4>
-              <p>I set up Authelia with TOTP 2FA and LLDAP in front of the analytics app and Superset, with 9 data-driven role groups and GDPR-oriented audit logging. After a security review I changed the API to verify the session itself instead of trusting forwarded identity headers. I also found and closed a gap where a role limited to one dashboard area could fetch another area's data by URL.</p>
+              <p>I set up Authelia with TOTP 2FA and LLDAP in front of the analytics app and Superset, with role-based access and GDPR-oriented audit logging, and hardened the API's session and permission checks after a security review.</p>
               <ul class="tags"><li>Authelia</li><li>LLDAP</li><li>Superset</li><li>PostgreSQL</li></ul>
             </li>
             <li>
               <h4>Compliance workflows</h4>
-              <p>I built most of the rule-authoring side of a responsible-gambling rules engine (versioned rules, four-eyes approval, optimistic concurrency) and of license, obligation and case management, which run in production on private, VPN-only deployments. State changes go through allow-listed state machines, and the audit history is written in the same transaction as the change.</p>
+              <p>I built most of the rule-authoring side of a responsible-gambling rules engine (versioned rules with four-eyes approval) and of license, obligation and case management, which run in production on private deployments, with a full audit history of every change.</p>
               <ul class="tags"><li>FastAPI</li><li>SQLAlchemy</li><li>PostgreSQL</li><li>React</li><li>TanStack</li></ul>
             </li>
             <li class="wide">
               <h4>Moves and reliability</h4>
-              <p>I planned and verified the move of the production BI and Airflow stack to a new Kubernetes cluster: dashboards, hundreds of charts and about 20,000 historical DAG runs came across intact. Earlier I moved the analytics stack from Docker Compose to Kubernetes, set resource limits across 7 service deployments after OOM kills, and wrote a post-incident analysis of an intermittent cluster tunnel failure.</p>
+              <p>I planned and verified the move of the production BI and Airflow stack to a new Kubernetes cluster, with dashboards, charts and DAG history carried over intact. Earlier I moved the analytics stack from Docker Compose to Kubernetes, set resource requests and limits after OOM kills, and wrote a post-incident analysis.</p>
               <ul class="tags"><li>Kubernetes</li><li>Rancher</li><li>Superset</li><li>Airflow</li></ul>
             </li>
           </ul>
