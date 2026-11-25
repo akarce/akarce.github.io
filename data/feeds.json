@@ -38,10 +38,10 @@
     }
   ],
   "stars": {
-    "RedditDataPipeline": 6,
+    "RedditDataPipeline": 5,
     "e2e-otp-pipeline": 2,
     "e2e-structured-streaming": 23,
-    "elk-stack-mastery": 11,
+    "elk-stack-mastery": 10,
     "real-time-data-pipeline-kafka-mongo-elasticsearch-pyspark": 3
   },
   "videos": [
